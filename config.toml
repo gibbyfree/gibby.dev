@@ -13,8 +13,8 @@ theme = "terminal"
   singlePageSite = true
 
 [params.twitter]
-  creator = "@"
-  site = "@"
+  creator = ""
+  site = ""
 
 [languages]
   [languages.en]
