@@ -121,7 +121,7 @@ figure figcaption{
     font-size:14px;
     padding:5px 10px;
     margin-top:5px;
-    background:#ee72f1;
+    background:#9174f1;
     background:var(--accent);
     color:rgb(33, 32, 44);
     color:var(--background)
@@ -140,7 +140,7 @@ code,kbd{
     font-feature-settings:normal;
     background:rgba(238, 114, 241, 0.2);
     background:rgba(238, 114, 241, 0.2);
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent);
     padding:1px 6px;
     margin:0 2px;
@@ -184,9 +184,9 @@ pre code{
     border:none
 }
 blockquote{
-    border-top:1px solid #ee72f1;
+    border-top:1px solid #9174f1;
     border-top:1px solid var(--accent);
-    border-bottom:1px solid #ee72f1;
+    border-bottom:1px solid #9174f1;
     border-bottom:1px solid var(--accent);
     margin:40px 0;
     padding:25px
@@ -215,7 +215,7 @@ blockquote p:first-of-type:before{
     display:block;
     position:absolute;
     left:-25px;
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent)
 }
 blockquote.twitter-tweet{
@@ -224,7 +224,7 @@ blockquote.twitter-tweet{
     background:rgba(238, 114, 241, 0.1);
     font:inherit;
     color:inherit;
-    border:1px solid #ee72f1;
+    border:1px solid #9174f1;
     border:1px solid var(--accent);
     padding-top:60px;
 }
@@ -235,12 +235,12 @@ blockquote.twitter-tweet:before{
     content:"> From Twitter:";
     position:absolute;
     top:20px;
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent);
     font-weight:700
 }
 blockquote.twitter-tweet a{
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent)
 }
 table{
@@ -250,12 +250,12 @@ table{
     margin:40px 0
 }
 table,td,th{
-    border:1px dashed #ee72f1;
+    border:1px dashed #9174f1;
     border:1px dashed var(--accent);
     padding:10px
 }
 th{
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent)
 }
 ol,ul{
@@ -286,7 +286,7 @@ ol li:before{
     content:counter(li);
     position:absolute;
     right:calc(100% + 10px);
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent);
     display:inline-block;
     text-align:right
@@ -295,7 +295,7 @@ ol ol{
     list-style-type:lower-alpha
 }
 mark{
-    background:#ee72f1;
+    background:#9174f1;
     background:var(--accent);
     color:rgb(33, 32, 44);
     color:var(--background)
@@ -372,7 +372,7 @@ hr{
 }
 .header__logo:after{
     content:"";
-    background:repeating-linear-gradient(90deg,#ee72f1,#ee72f1 2px,transparent 0,transparent 10px);
+    background:repeating-linear-gradient(90deg,#9174f1,#9174f1 2px,transparent 0,transparent 10px);
     background:repeating-linear-gradient(90deg,var(--accent),var(--accent) 2px,transparent 0,transparent 10px);
     display:block;
     width:100%;
@@ -501,7 +501,7 @@ hr{
     left:0;
 }
 .header .menu__sub-inner-more-trigger{
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent);
     -webkit-user-select:none;
     -moz-user-select:none;
@@ -526,7 +526,7 @@ hr{
     list-style-type:none;
     display:flex;
     flex-direction:row;
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent);
     cursor:pointer;
     margin:0
@@ -546,7 +546,7 @@ hr{
     right:0
 }
 .header .menu-trigger{
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent);
     border:2px solid;
     margin-left:10px;
@@ -558,7 +558,7 @@ hr{
     display:flex;
     align-items:center;
     text-decoration:none;
-    background:#ee72f1;
+    background:#9174f1;
     background:var(--accent);
     color:#000;
     padding:5px 10px;
@@ -644,7 +644,7 @@ hr{
     margin-top:20px
 }
 .framed{
-    border:1px solid #ee72f1;
+    border:1px solid #9174f1;
     border:1px solid var(--accent);
     padding:20px;
 }
@@ -685,7 +685,7 @@ hr{
 .post-title{
     --border:3px dotted var(--accent);
     position:relative;
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent);
     margin:0 0 15px;
     padding-bottom:15px
@@ -716,7 +716,7 @@ hr{
     margin-top:30px
 }
 .post-cover{
-    border:10px solid #ee72f1;
+    border:10px solid #9174f1;
     border:10px solid var(--accent);
     background:transparent;
     margin:40px 0;
@@ -741,7 +741,7 @@ hr{
     content:"-";
     position:absolute;
     left:-20px;
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent)
 }
 .post--regulation h1,.post--regulation h2{
@@ -769,7 +769,7 @@ h1:hover a,h2:hover a,h3:hover a,h4:hover a{
     color:rgba(255, 255, 255, 0.5)
 }
 .language-css .token.string,.language-scss .token.string,.style .token.string,.token.atrule,.token.attr-value,.token.boolean,.token.control,.token.directive,.token.entity,.token.inserted,.token.keyword,.token.number,.token.regex,.token.statement,.token.string,.token.url,code.language-css,code.language-scss{
-    color:#ee72f1;
+    color:#9174f1;
     color:var(--accent)
 }
 .token.atrule-id,.token.attr-name,.token.operator,.token.placeholder,.token.tag-id,.token.unit,.token.variable{
@@ -831,7 +831,7 @@ pre[data-line]{
     --accent:#ffa86a;
     --phoneWidth:(max-width:684px);
     --tabletWidth:(max-width:900px);
-    --accent:#ee72f1;
+    --accent:#9174f1;
     --background:rgb(33, 32, 44);
     --color:#fff;
     --border-color:hsla(0,0%,100%,0.1)

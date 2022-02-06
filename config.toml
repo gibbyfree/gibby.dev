@@ -5,10 +5,10 @@ theme = "terminal"
 
 [params]
   contentTypeName = "experience"
-  themeColor = "blue"
+  themeColor = "pink"
   showMenuItems = 6
   fullWidthTheme = false
-  # favicon = "favicon.ico"
+  favicon = "/img/kb.png"
   centerTheme = true
   singlePageSite = true
 
@@ -18,7 +18,7 @@ theme = "terminal"
 
 [languages]
   [languages.en]
-    title = "Gibby Free // Software Engineer"
+    title = "Gibby Free"
     subtitle = ""
     keywords = ""
     copyright = ""
