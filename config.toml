@@ -1,0 +1,59 @@
+baseURL = '/'
+languageCode = 'en-us'
+title = 'Gibby Free'
+theme = "terminal"
+
+[params]
+  contentTypeName = "experience"
+  themeColor = "blue"
+  showMenuItems = 6
+  fullWidthTheme = false
+  # favicon = "favicon.ico"
+  centerTheme = true
+  singlePageSite = true
+
+[params.twitter]
+  creator = "@"
+  site = "@"
+
+[languages]
+  [languages.en]
+    title = "Gibby Free // Software Engineer"
+    subtitle = ""
+    keywords = ""
+    copyright = ""
+    menuMore = "Show more"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+
+    [languages.en.params.logo]
+      logoText = "Gibby Free // Software Engineer"
+      logoSplit = " / "   # Places logo text blocks in to spans so they wrap nicely
+      logoHomeLink = "/"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/#about"
+        weight = 1
+      [[languages.en.menu.main]]
+        identifier = "experience"
+        name = "Experience"
+        url = "/#experience"
+        weight = 2
+      [[languages.en.menu.main]]
+        identifier = "skills"
+        name = "Skills"
+        url = "/skills"
+        weight = 3
+      [[languages.en.menu.main]]
+        identifier = "projects"
+        name = "Projects"
+        url = "/projects"
+        weight = 4
+      [[languages.en.menu.main]]
+        identifier = "blog"
+        name = "Blog"
+        url = "/#blog"
+        weight = 5
