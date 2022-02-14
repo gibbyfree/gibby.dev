@@ -5,28 +5,10 @@
       {{ . }}
     </div>
   {{ end }}
-  {{ if eq (.Params.isPortfolio) true }}
-    {{ if .Sections }}
-      {{ range sort .Sections ".Weight"}}
-      <h2>{{.CurrentSection.Title}}</h2>
-      <div class="portfolio-grid">
-        {{ range .Data.Pages }}
-          {{ partial "portfolio_item.html" . }}
-        {{ end }}
-      </div>
-      {{ end }}
-    {{ else }}
-      <div class="portfolio-grid">
-      {{ range .Pages }}
-        {{ partial "portfolio_item.html" . }}
-    {{ end }}
-    </div>
-  {{ end }}
   <section class="posts">
     {{ range .Pages.ByDate.Reverse }}
       {{ partial "collection.html" . }}
     {{ end }}
     {{ partial "pagination.html" . }}
   </section>
-{{ end }}
 {{ end }}
