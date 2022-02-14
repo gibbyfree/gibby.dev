@@ -31,6 +31,49 @@
                 {{ partial "section.html" . }}
               {{ end }}
             </div>
+          {{ else if eq (first 2 .URL) "/e" }}
+            <h1 class="section-header">Experience<a href="#experience" class="hanchor" arialabel="Anchor">⌗</a></h1>
+              <div class="portfolio-grid">
+                <a class="portfolio-link" href="#reprise">
+                  <div class="portfolio-grid-item">
+                    <div>
+                      <img class="portfolio-grid-item-image" src="img/reprise.jpeg" alt="Reprise"/> 
+                    </div>
+                    <div class="portfolio-grid-item-name">
+                       Reprise 
+                       <img class="portfolio-grid-item-icon" height="14" width="14" src="icon/vuedotjs.svg"/>
+                       <img class="portfolio-grid-item-icon" height="14" width="14" src="icon/django.svg"/>
+                       <img class="portfolio-grid-item-icon" height="14" width="14" src="icon/typescript.svg"/>
+                    </div>
+                  </div>
+                </a>
+                <a class="portfolio-link" href="#cogito">
+                  <div class="portfolio-grid-item">
+                    <div>
+                      <img class="portfolio-grid-item-image" src="img/cogito.jpeg" alt="Cogito"/> 
+                    </div>
+                    <div class="portfolio-grid-item-name">
+                      Cogito
+                      <img class="portfolio-grid-item-icon" height="14" width="14" src="icon/java.svg"/>
+                      <img class="portfolio-grid-item-icon" height="14" width="14" src="icon/springboot.svg"/>
+                      <img class="portfolio-grid-item-icon" height="14" width="14" src="icon/kubernetes.svg"/>
+                    </div>
+                  </div>
+                </a>
+                <a class="portfolio-link" href="#carbonite">
+                  <div class="portfolio-grid-item">
+                    <div>
+                      <img class="portfolio-grid-item-image" src="img/carbonite.jpeg" alt="Carbonite"/> 
+                    </div>
+                    <div class="portfolio-grid-item-name">
+                      Carbonite
+                      <img class="portfolio-grid-item-icon" height="14" width="14" src="icon/python.svg"/>
+                      <img class="portfolio-grid-item-icon" height="14" width="14" src="icon/csharp.svg"/>
+                      <img class="portfolio-grid-item-icon" height="14" width="14" src="icon/selenium.svg"/>
+                    </div>
+                  </div>
+                </a>
+              </div>
           {{ else if in "section term" $navLinkPage.Kind }}
             <h1 class="section-header">{{ .Name }}<a href="{{ .URL }}" class="hanchor" arialabel="Anchor">⌗</a></h1>
             {{ $paginateCount := default 2 $.Site.Params.homepagePaginateCount }}

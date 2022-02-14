@@ -4,7 +4,7 @@ title = 'Gibby Free'
 theme = "terminal"
 
 [params]
-  contentTypeName = "experience"
+  contentTypeName = "blog"
   themeColor = "pink"
   showMenuItems = 6
   fullWidthTheme = false
@@ -40,12 +40,12 @@ theme = "terminal"
       [[languages.en.menu.main]]
         identifier = "experience"
         name = "Experience"
-        url = "/#experience"
+        url = "/experience"
         weight = 2
       [[languages.en.menu.main]]
         identifier = "skills"
         name = "Skills"
-        url = "/skills"
+        url = "/#skills"
         weight = 3
       [[languages.en.menu.main]]
         identifier = "projects"
@@ -55,5 +55,5 @@ theme = "terminal"
       [[languages.en.menu.main]]
         identifier = "blog"
         name = "Blog"
-        url = "/#blog"
+        url = "/blog"
         weight = 5

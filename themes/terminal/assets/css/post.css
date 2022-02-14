@@ -117,7 +117,7 @@
 }
 
 .hanchor {
-  color: color-mod(var(--accent) alpha(90%));
+  color: #6c46ec;
   text-decoration: none;
   margin-left: 10px;
   visibility: hidden;
