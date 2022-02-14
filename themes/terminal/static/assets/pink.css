@@ -48,7 +48,7 @@ a{
     color:inherit
 }
 img{
-    display:block;
+    display:inline-block;
     max-width:100%
 }
 img.center,img.left{
