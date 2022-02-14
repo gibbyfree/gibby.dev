@@ -1354,12 +1354,14 @@ body .gist .blob-code-inner,body .gist .blob-num{
     border:none
 }
 .portfolio-grid{
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
+    max-width:70%;
     margin: auto;
-    margin-bottom: 5%;
-    max-width: 75%;
     display:grid;
     grid-gap:10px;
-    grid-template-columns:repeat(auto-fit,minmax(185px,1fr))
+    grid-template-columns:repeat(3,minmax(185px,1fr))
 }
 @media (max-width:683px){
     .portfolio-grid{
@@ -1372,13 +1374,14 @@ body .gist .blob-code-inner,body .gist .blob-num{
     }
 }
 .portfolio-grid-item{
-    max-width: 200px;
+    max-width: 180px;
+    max-height: 180px;
     background-color:hsla(0,0%,100%,.8);
     text-align:center;
     font-size:30px;
     border:1px solid hsla(0,0%,100%,.1);
     border:1px solid var(--border-color);
-    position:relative
+    position:relative;
 }
 .portfolio-grid-item>div .portfolio-grid-item-image{
     max-width:100%;
@@ -1403,6 +1406,7 @@ body .gist .blob-code-inner,body .gist .blob-num{
     font-size:12pt
 }
 .portfolio-link{
-    display:block
+    display: block;
+    max-width: 180px;
+    max-height: 180px;
 }
- 
