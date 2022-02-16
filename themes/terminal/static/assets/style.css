@@ -573,7 +573,8 @@ table,td,th{
 }
 th{
     color:#ffa86a;
-    color:var(--accent)
+    color:var(--accent);
+    font-size: 20px;
 }
 ol,ul{
     margin-left:30px;
