@@ -6,6 +6,7 @@ daterange = 'Jan 2021 - Aug 2021'
 author = 'Software Engineer Co-op'
 description = "I helped build out Cogito's microservice-based platform."
 cover = 'experience/cogito-banner.jpeg'
+tags = ['backend_development','microservices', 'infrastructure']
 +++
 Cogito is a software company that develops an AI-augmented coaching system that integrates directly with a call center's telephony system. When Cogito's Dialog web application is running on a call center agent's machine, they will receive real-time feedback related to their behavior in the call. Dialog will notify the agent in real-time when they are speaking too quickly, when there has been an extended pause in the conversation, when there is an opportunity to meet their customer with empathy, and upon many other unique triggers. Here's what I have on my resume to represent my time at Cogito:
 
