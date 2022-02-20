@@ -6,6 +6,7 @@ daterange = 'Jan 2022 - Present'
 author = 'Software Engineer'
 description = "I'm improving usability, performance, and functionality of a next-generation web application."
 cover = 'experience/reprise-banner.png'
+tags = ['web_development', 'fullstack_development']
 +++
 Reprise is a product-led growth platform that specializes in the creation of demos and product tours. Using Reprise's browser extension, a user is able to capture their website or web application. This capture is parsed by the extension, and the user can ues Reprise's editor to directly modify the behavior and appearance of their demo. This no-code editor enables always-on, infrastructure-less views into the user's application or webpage, allowing companies to create demos for their products without having to go through the trouble of configuring, enabling, and maintaining a fickle demo environment. 
 

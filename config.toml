@@ -11,6 +11,7 @@ theme = "terminal"
   favicon = "/img/kb.png"
   centerTheme = true
   singlePageSite = true
+  readingTime = true
 
 [params.twitter]
   creator = ""
@@ -25,6 +26,10 @@ theme = "terminal"
     menuMore = "Show more"
     readMore = "Read more"
     readOtherPosts = "Read other posts"
+    newerPosts = "Newer posts"
+    olderPosts = "Older posts"
+    missingContentMessage = "Page not found..."
+    missingBackButtonLabel = "Back to home page"
 
     [languages.en.params.logo]
       logoText = "Gibby Free // Software Engineer"
