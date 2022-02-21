@@ -2,6 +2,7 @@ baseURL = '/'
 languageCode = 'en-us'
 title = 'Gibby Free'
 theme = "terminal"
+enableEmoji = true
 
 [params]
   contentTypeName = "blog"
@@ -23,7 +24,7 @@ theme = "terminal"
     subtitle = ""
     keywords = ""
     copyright = ""
-    menuMore = "Show more"
+    menuMore = "Check out more"
     readMore = "Read more"
     readOtherPosts = "Read other posts"
     newerPosts = "Newer posts"

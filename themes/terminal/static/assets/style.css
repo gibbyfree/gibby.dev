@@ -78,6 +78,9 @@ a.read-more,a.read-more:active,a.read-more:hover{
     margin:20px 0;
     max-width:100%
 }
+a.read-more:hover {
+    font-weight: bold;
+}
 .code-toolbar{
     margin-bottom:20px;
 }
@@ -384,7 +387,9 @@ figure{
 }
 figure.center{
     width:100%;
-    float:none
+    float:none;
+    margin-left: auto;
+    margin-right: auto;
 }
 figure.left{
     width:50%;
@@ -742,13 +747,13 @@ hr{
     text-decoration:none
 }
 .post-content{
-    margin-top:30px
+    margin-top:15px;
 }
 .post-cover{
     border:10px solid #ffa86a;
     border:10px solid var(--accent);
     background:transparent;
-    margin:40px 0;
+    margin:20px 0;
     padding:20px
 }
 @media (max-width:684px){
@@ -795,9 +800,6 @@ h1:hover a,h2:hover a,h3:hover a,h4:hover a{
 .footnotes{
     color:rgba(255, 255, 255, 0.5);
     color:rgba(255, 255, 255, 0.5)
-}
-.pagination{
-    margin-top:50px
 }
 @media print{
     .pagination{
