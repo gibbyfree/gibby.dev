@@ -5,6 +5,7 @@ date = '2020-12-24'
 description = "I created a CLI simulation of the Engima I cipher machine."
 cover = 'projects/enigma/header.jpeg'
 tags = ['cli', 'crytography', 'java']
+keywords = ['cryptography', 'cryptanalysis', 'enigma cipher', 'enigma java', 'simulation', 'cli', 'java']
 +++
 ## Context
 In late 2020, I stumbled upon a [*The Code Book* written by Simon Singh](https://simonsingh.net/books/the-code-book/). I was intrigued by the book's discussion of cryptographic history, especially its coverage of the earliest forms of cryptography. *The Code Book* spends a fair bit of time talking about the [**Enigma Machine**](https://en.wikipedia.org/wiki/Enigma_machine), which was a legendary cipher machine used by the Axis powers during World War II. I was aware of the Enigma Machine before reading *The Code Book*, but I didn't really understand the details as to how it worked. As it turns out, its mechanisms weren't that hard to wrap my head around. I was fixated on the creativity that went into the machine's design, and how just a few simple components could come together to produce a nearly-unbreakable cipher. (Also, [the brilliant work of the Polish](https://en.wikipedia.org/wiki/Cryptanalysis_of_the_Enigma#Polish_breakthroughs) to crack the cipher was mind-blowing.) I wasn't born as an engineer with any mechanical prowess, and so I felt inspired to create a CLI-based version of the Engima I machine.

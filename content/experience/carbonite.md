@@ -7,6 +7,7 @@ author = 'Software Engineer in Test Co-op'
 description = "I ensured thorough test coverage for Carbonite's Endpoint admin portal."
 cover = 'experience/carbonite-banner.png'
 tags = ['testing', 'api_development']
+keywords = ['carbonite', 'webroot', 'opentext', 'boston', 'software engineering in test', 'test automation', 'python', 'pytest']
 +++
 Carbonite is a software company that provides data backup solutions to individuals and businesses. They have a few product offerings, including Carbonite Endpoint. Endpoint is an endpoint protection software that  large, distributed organizations can deploy to protect, backup, and manage the data that exists on that organization's devices. Endpoint offers features such as advanced administrative control, incremental restore, and most importantly, highly secure protection. Here's what I have on my resume to represent my time at Carbonite:
 
