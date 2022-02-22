@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Experience on Gibby Free</title>
+    <link>/experience/</link>
+    <description>Recent content in Experience on Gibby Free</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/experience/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Engineering at Reprise</title>
+      <link>/experience/reprise/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/experience/reprise/</guid>
+      <description>Reprise is a product-led growth platform that specializes in the creation of demos and product tours. Using Reprise&amp;rsquo;s browser extension, a user is able to capture their website or web application. This capture is parsed by the extension, and the user can ues Reprise&amp;rsquo;s editor to directly modify the behavior and appearance of their demo. This no-code editor enables always-on, infrastructure-less views into the user&amp;rsquo;s application or webpage, allowing companies to create demos for their products without having to go through the trouble of configuring, enabling, and maintaining a fickle demo environment.</description>
+      <content>&lt;p&gt;Reprise is a product-led growth platform that specializes in the creation of demos and product tours. Using Reprise&amp;rsquo;s browser extension, a user is able to capture their website or web application. This capture is parsed by the extension, and the user can ues Reprise&amp;rsquo;s editor to directly modify the behavior and appearance of their demo. This no-code editor enables always-on, infrastructure-less views into the user&amp;rsquo;s application or webpage, allowing companies to create demos for their products without having to go through the trouble of configuring, enabling, and maintaining a fickle demo environment.&lt;/p&gt;
+&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;As I&amp;rsquo;ve recently begun working at Reprise, it&amp;rsquo;s impossible for me to encapsulate my experience thus far. This is the smallest and most dynamic startup that I have worked at, and so the nature of my work is changing all of the time. Broadly speaking, my work at Reprise has involved improving the usability, performance, and functionality of our products. This includes Reprise&amp;rsquo;s Screen Capture offering, as well as their experimental Live Demo product, which allows users to capture sandboxed versions of complex web applications.&lt;/p&gt;
+&lt;p&gt;I have enjoyed the unique problems (and innovative solutions) that I&amp;rsquo;ve been exposed to while working at Reprise. The tech stack consists of a Vue.js / TypeScript front-end, and a Django backend. I&amp;rsquo;ve loved working with these technologies on my own personal time, and it&amp;rsquo;s awesome to be able to work with them professionally. In addition, this is my first role where I&amp;rsquo;ve had so much hands-on work with browser extensions. The use of the extension, along with the cutting-edge nature of our browser-based no-code editor, has led me to learn a lot about the inner workings of web browsers. I&amp;rsquo;m challenged by the nuances of this kind of &amp;ldquo;low-level&amp;rdquo; web development, but I&amp;rsquo;m also greatly motivated by the wide open undiscovered space in front of me!&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Software Engineering at Cogito</title>
+      <link>/experience/cogito/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/experience/cogito/</guid>
+      <description>Cogito is a software company that develops an AI-augmented coaching system that integrates directly with a call center&amp;rsquo;s telephony system. When Cogito&amp;rsquo;s Dialog web application is running on a call center agent&amp;rsquo;s machine, they will receive real-time feedback related to their behavior in the call. Dialog will notify the agent in real-time when they are speaking too quickly, when there has been an extended pause in the conversation, when there is an opportunity to meet their customer with empathy, and upon many other unique triggers.</description>
+      <content>&lt;p&gt;Cogito is a software company that develops an AI-augmented coaching system that integrates directly with a call center&amp;rsquo;s telephony system. When Cogito&amp;rsquo;s Dialog web application is running on a call center agent&amp;rsquo;s machine, they will receive real-time feedback related to their behavior in the call. Dialog will notify the agent in real-time when they are speaking too quickly, when there has been an extended pause in the conversation, when there is an opportunity to meet their customer with empathy, and upon many other unique triggers. Here&amp;rsquo;s what I have on my resume to represent my time at Cogito:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Developed and maintained RESTful, asynchronous APIs using Java Spring Boot&lt;/li&gt;
+&lt;li&gt;Addressed bugs and technical debt associated with the launch of Platform 2, an overhauled, microservice-based platform supporting core functionality of the product&lt;/li&gt;
+&lt;li&gt;Supported infrastructural monitoring and maintenance for scalability and performance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;As part of the Platform team at Cogito, I helped my fellow engineers develop Platform 2. Platform 2 was a ground-up reimplementation of Dialog&amp;rsquo;s first set of platform services, and it was reimagined to be more performant, reliable, and extensible than Platform 1. All of the microservices were developed using Java Spring Boot and deployed via Kubernetes. During the pre-GA stage of Platform 2&amp;rsquo;s release, I tracked down and squashed several bugs that interfered with the usability of the new microservices. I laid down the framework for extensions on the various APIs, and I also improved test coverage to ensure reliability of the overall system.&lt;/p&gt;
+&lt;p&gt;The coolest part of my time at Cogito was the exposure that I gained to various infrastructure-related tools &amp;ndash; after all, the Platform team tends to wear many hats! I exposed relevant metrics in our microservices via Prometheus, and I used these endpoints to build out dashboards in Grafana. These dashboards were used to monitor Platform 2&amp;rsquo;s general performance and availability, but they were also used to measure the system&amp;rsquo;s overall reliability during webload testing. In addition, there were some points where it became necessary to develop new utility-based microservices to be used by Platform 2 or its users. I used Terraform to create AWS resources for these microservices, as well as the roles necessary for our Kubernetes pods to actually use the resources.&lt;/p&gt;
+&lt;p&gt;Overall, it was one of the most technically fascinating and rewarding co-ops that I experienced during my time at Northeastern University. By the end of my co-op, I was able to see the first Cogito customer deploy to a Platform 2 environment. Considering that Platform 2 had been conceptualized long before I even interviewed at Cogito, it was truly awesome to have a hand in the culmination of the engineering organization&amp;rsquo;s hard work and dedication.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Test Engineering at Carbonite</title>
+      <link>/experience/carbonite/</link>
+      <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/experience/carbonite/</guid>
+      <description>Carbonite is a software company that provides data backup solutions to individuals and businesses. They have a few product offerings, including Carbonite Endpoint. Endpoint is an endpoint protection software that large, distributed organizations can deploy to protect, backup, and manage the data that exists on that organization&amp;rsquo;s devices. Endpoint offers features such as advanced administrative control, incremental restore, and most importantly, highly secure protection. Here&amp;rsquo;s what I have on my resume to represent my time at Carbonite:</description>
+      <content>&lt;p&gt;Carbonite is a software company that provides data backup solutions to individuals and businesses. They have a few product offerings, including Carbonite Endpoint. Endpoint is an endpoint protection software that  large, distributed organizations can deploy to protect, backup, and manage the data that exists on that organization&amp;rsquo;s devices. Endpoint offers features such as advanced administrative control, incremental restore, and most importantly, highly secure protection. Here&amp;rsquo;s what I have on my resume to represent my time at Carbonite:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Contributed to the design and development of the Carbonite Endpoint web-based admin control portal in an Agile Scrum team, primarily focused on API development&lt;/li&gt;
+&lt;li&gt;Designed and implemented automated testing using Python&lt;/li&gt;
+&lt;li&gt;Documented and resolved defects related to the API (C#) and UI (Angular)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;When I worked at Carbonite, I was helping the Endpoint team expand the functionality of their admin control portal. This is the portal that system admins or IT professionals would use to manage users, devices, and backups that were registered under their organization. From my understanding, the portal was making use of an API that my team was responsible for creating &lt;code&gt;v2&lt;/code&gt; of &amp;ndash; at least for certain, frequently-used endpoints. There was a surprising amount of complexity to these endpoints, as they had to account for complex organizations of users and role-based access control.&lt;/p&gt;
+&lt;p&gt;The Endpoint team followed a test-driven development process. I was a Software Engineer in Test on the team, which meant that I worked directly alongside an engineer as they developed. I defined test cases based on the requirements of the ticket, and I wrote automated tests in Python to ensure that the developer&amp;rsquo;s work was correct and well-implemented. If I recall correctly, we used a homegrown testing library similar to Pytest. My team also greatly prioritized accurate documentation and comments, so there was some time spent refining Swagger documentation as well.&lt;/p&gt;
+&lt;p&gt;This role also allowed for my first experience with Selenium, as it was sometimes necessary to check that certain conditions and outputs were conveyed accurately in the UI. This was my first time using a browser automation tool, and I thought that it was pure black magic! I would still like to find an opportunity to create something neat with Selenium. Overall, my time spent at Carbonite allowed me to use interesting tools and improve my discipline around automated and integrated tests.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

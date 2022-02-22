@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>crytography on Gibby Free</title>
+    <link>/tags/crytography/</link>
+    <description>Recent content in crytography on Gibby Free</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/crytography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simulating Ciphers: Enigma I CLI</title>
+      <link>/projects/enigma/</link>
+      <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/enigma/</guid>
+      <description>Context In late 2020, I stumbled upon a The Code Book written by Simon Singh. I was intrigued by the book&amp;rsquo;s discussion of cryptographic history, especially its coverage of the earliest forms of cryptography. The Code Book spends a fair bit of time talking about the Enigma Machine, which was a legendary cipher machine used by the Axis powers during World War II. I was aware of the Enigma Machine before reading The Code Book, but I didn&amp;rsquo;t really understand the details as to how it worked.</description>
+      <content>&lt;h2 id=&#34;context&#34;&gt;Context&lt;/h2&gt;
+&lt;p&gt;In late 2020, I stumbled upon a &lt;a href=&#34;https://simonsingh.net/books/the-code-book/&#34;&gt;&lt;em&gt;The Code Book&lt;/em&gt; written by Simon Singh&lt;/a&gt;. I was intrigued by the book&amp;rsquo;s discussion of cryptographic history, especially its coverage of the earliest forms of cryptography. &lt;em&gt;The Code Book&lt;/em&gt; spends a fair bit of time talking about the &lt;a href=&#34;https://en.wikipedia.org/wiki/Enigma_machine&#34;&gt;&lt;strong&gt;Enigma Machine&lt;/strong&gt;&lt;/a&gt;, which was a legendary cipher machine used by the Axis powers during World War II. I was aware of the Enigma Machine before reading &lt;em&gt;The Code Book&lt;/em&gt;, but I didn&amp;rsquo;t really understand the details as to how it worked. As it turns out, its mechanisms weren&amp;rsquo;t that hard to wrap my head around. I was fixated on the creativity that went into the machine&amp;rsquo;s design, and how just a few simple components could come together to produce a nearly-unbreakable cipher. (Also, &lt;a href=&#34;https://en.wikipedia.org/wiki/Cryptanalysis_of_the_Enigma#Polish_breakthroughs&#34;&gt;the brilliant work of the Polish&lt;/a&gt; to crack the cipher was mind-blowing.) I wasn&amp;rsquo;t born as an engineer with any mechanical prowess, and so I felt inspired to create a CLI-based version of the Engima I machine.&lt;/p&gt;
+&lt;p&gt;When choosing the tech stack for this project, I opted to use Java. Mostly because, at the time, I was completing a &lt;a href=&#34;/experience/cogito&#34;&gt;software engineering co-op at Cogito&lt;/a&gt;, and so my day-to-day usage of Java had me confident that I would be able to crank out this project before I lost interest in it. Furthermore, I really wanted to represent the internals of the machine in an &lt;strong&gt;object-oriented&lt;/strong&gt; way. I appreciated the modular nature of the Enigma machine, and how each component has a simple individual function, but the coalescence of their functionalities came together to form something much more complex than the sum of its parts. With my language chosen, I was able to begin the design and implementation of this simulation.&lt;/p&gt;
+&lt;h2 id=&#34;implementation&#34;&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;To design the simulation, it&amp;rsquo;s important to understand how the original machine operated. There are two core components: the plugboard, and the rotors. The &amp;lsquo;magic&amp;rsquo; of the Engima machine is that the encryption process doubles over onto itself. That is to say, everything is encrypted one way (in through the plugboard, then through the rotors) and then it&amp;rsquo;s encrypted the same way, but backwards (through the rotors, then out through the plugboard). The individual specifications of these two components are fairly straight-forward.&lt;/p&gt;
+&lt;p&gt;The encryption process flows by inputting individual characters through the machine&amp;rsquo;s keyboard. Electric current flows from each individual keypress up through the plugboard.&lt;/p&gt;
+&lt;h3 id=&#34;plugboard&#34;&gt;Plugboard&lt;/h3&gt;
+
+  &lt;figure class=&#34;right&#34;  &gt;
+    &lt;img src=&#34;/projects/enigma/plugboard.jpeg&#34;  alt=&#34;Enigma plugboard&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;left&#34;  style=&#34;color: black;&#34; &gt;The Enigma&#39;s plugboard. Each character connects to one other character.&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;The plugboard is a straight-forward but ingenuous enchipering component. Characters can be connected to each other with a wire, and this wire establishes a &lt;strong&gt;substitution cipher&lt;/strong&gt; between the two characters. If a user connects the &lt;code&gt;[A, B]&lt;/code&gt; pair, an input of &lt;code&gt;A&lt;/code&gt; will become &lt;code&gt;B&lt;/code&gt; as the current exits the plugboard. There&amp;rsquo;s nothing especially mind-blowing about how this would work algorithmically. My implementation of the plugboard started by importing an &lt;code&gt;ALPHABET&lt;/code&gt; constant, which is a simple ordered list containing the letters of the alphabet. I take the swapped characters from the input file (more on that later) and take note of them as swapped pairs. On each keypress, if a character belongs to a swap pair, we perform this simple substitution:&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;1&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;1&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;java&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;plugboard swapping&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;△&#34; data-label-collapse=&#34;▽&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-java&#34; &gt;&lt;code&gt;
+char before = ALPHABET.get(i);
+char after = ALPHABET.get(outs.get(ins.indexOf(i)));
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;When the electric current is passing through the plugboard for a second time (right before the enciphered character is returned by the machine), we just perform the inverse of this operation:&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;2&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;2&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;java&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;plugboard swapping 2: electric boogaloo&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;△&#34; data-label-collapse=&#34;▽&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-java&#34; &gt;&lt;code&gt;
+char before = ALPHABET.get(i);
+char after = ALPHABET.get(ins.get(outs.indexOf(i)));
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;h3 id=&#34;rotor&#34;&gt;Rotor&lt;/h3&gt;
+
+  &lt;figure class=&#34;left&#34;  &gt;
+    &lt;img src=&#34;/projects/enigma/rotor.jpeg&#34;  alt=&#34;Enigma rotor&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;left&#34;  style=&#34;color: black;&#34; &gt;An Enigma rotor. Notice the indexed alphabet wheel, which houses its internal structure and wiring.&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;The rotor is the bread-and-butter of the Enigma, and it was the main draw of the machine for me. The rotors add a &lt;strong&gt;shift cipher&lt;/strong&gt; layer to the enciphering flow, and they do so in a unique way. The rotors themselves are hardwired to a certain configuration, where one character will always become another character. For instance, the historic Enigma I&amp;rsquo;s rotor I used the wire configuration &lt;code&gt;EKMFLGDQVZNTOWYHXUSPAIBRCJ&lt;/code&gt;. The pin corresponding to &lt;code&gt;ALPHABET[0]&lt;/code&gt;, or &lt;code&gt;A&lt;/code&gt;, would be wired to become &lt;code&gt;E&lt;/code&gt;. There were three rotors in the Enigma I, and so as a character&amp;rsquo;s electric signal exits the plugboard, it is enciphered by the three rotors in rapid succession. The complexity of the rotor configuration comes in the fact that a) the rotors can be oriented in any initial position and b) the rotors &amp;lsquo;step&amp;rsquo; on each keypress.&lt;/p&gt;
+&lt;p&gt;What does this mean exactly? When I described the earlier case of &lt;code&gt;A -&amp;gt; E&lt;/code&gt; from rotor I, this would only occur if the rotor were intially placed in a position of &lt;code&gt;0&lt;/code&gt;. There&amp;rsquo;s a reason why the alphabet of the rotor is represented by alphabetic indices rather than alphabetic characters. The &lt;strong&gt;offset&lt;/strong&gt; of the rotor lends additional complexity to the cipher. If I set a rotor of wire configuration &lt;code&gt;EKMFLGDQVZNTOWYHXUSPAIBRCJ&lt;/code&gt; to the offset of &lt;code&gt;1&lt;/code&gt;, then suddenly I have &lt;code&gt;KMFLGDQVZNTOWYHXUSPAIBRCJE&lt;/code&gt;. The pin corresponding to &lt;code&gt;A&lt;/code&gt; would be wired to become &lt;code&gt;K&lt;/code&gt;. Not only can the offset of a rotor be manually set prior to enciphering, but on each keypress, the rotors will &amp;lsquo;step&amp;rsquo;, or rotate themselves along their wire configuration. So, after &lt;code&gt;A -&amp;gt; K&lt;/code&gt;, the rotor will step, and the wire configuration can be represented as &lt;code&gt;MFLGDQVZNTOWYHXUSPAIBRCJEK&lt;/code&gt;. If another &lt;code&gt;A&lt;/code&gt; input entered rotor I, it would be enciphered in a configuration that was entirely unique from the previous &lt;code&gt;A&lt;/code&gt; input.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+  &lt;figure class=&#34;right&#34;  &gt;
+    &lt;img src=&#34;/projects/enigma/decoder-pin.png&#34;  alt=&#34;Decoder pin&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;left&#34;  style=&#34;color: black;&#34; &gt;I wonder how many crummy commercials were enciphered by the Enigma I...?&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+ &lt;strong&gt;Tangent:&lt;/strong&gt; When you consider that your three hardwired rotors can be set in any order (maybe I place rotor I last, and rotor II first) and that their initial offset can be anywhere from &lt;code&gt;0&lt;/code&gt; to &lt;code&gt;26&lt;/code&gt;, these layers of subtle variation produced enciphered text that was (nearly) impossible to crack without a key. &lt;a href=&#34;https://en.wikipedia.org/wiki/Rotor_machine&#34;&gt;Rotor machines&lt;/a&gt; had existed in cryptography prior to zenith of the Enigma I, but it could be argued that the Engima perfected the cryptographic techniques used by the typical rotor machine. For me, upon first reading about how these rotors shifted along their wire configuration, I could only think of one thing: the Little Orphan Annie Secret Decoder Pin from &lt;em&gt;A Christmas Story&lt;/em&gt;. I mentally conceptualized the Enigma as three of those decoder pins stacked on top of each other, feeding each other&amp;rsquo;s input and output. It made the project a lot more fun to think about!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;When we think about translating this rotor functionality to code, we&amp;rsquo;re benefitted by the fact that these are hardwired configurations. Basically, we just have to keep track of the offset of the wheel and make sure that we&amp;rsquo;re &amp;lsquo;wrapping around&amp;rsquo; the wire configuration as we shift it along itself. I wrote something like this:&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;3&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;3&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;java&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;rotor translating&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;△&#34; data-label-collapse=&#34;▽&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-java&#34; &gt;&lt;code&gt;
+int newIndex = i &amp;#43; this.offset;
+while (newIndex &amp;gt; 25) {
+    newIndex -= 25;
+}
+char before = ALPHABET.get(i);
+char after;
+if (this.offset &amp;gt; 0) {
+    after = this.wireSpec.get(newIndex - 1);
+} else {
+    after = this.wireSpec.get(i);
+}
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;Stepping the rotor&amp;rsquo;s offset is accomplished in a similarly trivial way:&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;4&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;4&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;java&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;rotor offset&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;△&#34; data-label-collapse=&#34;▽&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-java&#34; &gt;&lt;code&gt;
+if (offset &amp;gt;= 25) {
+    offset = 0;
+}
+else {
+    this.offset&amp;#43;&amp;#43;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;There is some nuance in how the rotor stepping is handled, though. The rotor steps &lt;strong&gt;on initial input&lt;/strong&gt;, so when the first key is pressed, by the time the electrical signal reaches the rotor, it will have already shifted from its initial offset. In addition, we step the rightmost rotor on each keypress, but we only step the middle and leftmost rotors when the alphabet indice for &lt;code&gt;R&lt;/code&gt;, &lt;code&gt;F&lt;/code&gt;, or &lt;code&gt;W&lt;/code&gt; (depending on which rotor is in the middle and left position &amp;ndash; remember the wire configurations are hardwired) appear on top of the rotor. This is a seemingly arbitrary character for each rotor, and it stems from the fact that rotor stepping was possible due to physical turnover notches on each rotor.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;4&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;4&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;java&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;rotor stepping&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;△&#34; data-label-collapse=&#34;▽&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-java&#34; &gt;&lt;code&gt;
+// Rotate the outermost rotor.
+rotors.get(0).rotate();
+// Check if any of the other rotors are also rotated.
+if(rotors.get(0).getRotor() == 1 &amp;amp;&amp;amp; rotors.get(0).getTop() == &amp;#39;R&amp;#39;
+    || rotors.get(0).getRotor() == 2 &amp;amp;&amp;amp; rotors.get(0).getTop() == &amp;#39;F&amp;#39;
+    || rotors.get(0).getRotor() == 3 &amp;amp;&amp;amp; rotors.get(0).getTop() == &amp;#39;W&amp;#39;) {
+        rotors.get(1).rotate();
+} 
+// same process for the other rotor
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;The only additional thing to say about rotors is that, although we perform this stepping on left-to-right encrypt, the rotors remain stationary when the electrical current passes back through the rotors on its way back to the keyboard display. So right-to-left encryption is straight-forward:&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;5&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;5&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;java&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;rotor left-to-right encryption&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;△&#34; data-label-collapse=&#34;▽&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-java&#34; &gt;&lt;code&gt;
+// There is no rotation in left-to-right rotor encryption.
+for(int i = rotors.size() - 1; i &amp;gt;= 0; i--) {
+    current = rotors.get(i).translate(current);
+}
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;h3 id=&#34;reflector&#34;&gt;Reflector&lt;/h3&gt;
+&lt;p&gt;There is one final component of the Enigma that I haven&amp;rsquo;t talked about yet. On the far left of the machine, past the final rotor, there is a reflector. This reflector takes the output of the final rotor and alters it before returning the current back through all of the rotors again. I thought of the reflector as just being a stationary rotor. For this project, I used the wire specification used by the &lt;strong&gt;UKW-B&lt;/strong&gt; reflector, which was in-use for most of World War II. It uses the wire specification &lt;code&gt;YRUHQSLDPXNGOKMIEBFZCWVJAT&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So, to encrypt a character, the driver function of my simulator executes the following steps:&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;5&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;5&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;java&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;top-level encryption&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;△&#34; data-label-collapse=&#34;▽&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-java&#34; &gt;&lt;code&gt;
+int alphaIndex = ALPHABET.indexOf(c);
+int afterPb = pb.translate(alphaIndex);
+int afterRotors = rotorEncrypt(afterPb, rotors);
+int afterReflector = reflector.translate(afterRotors);
+int afterReverseRotors = reverseRotorEncrypt(afterReflector, rotors);
+int afterReversePb = pb.reverseTranslate(afterReverseRotors);
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;h3 id=&#34;interface&#34;&gt;Interface&lt;/h3&gt;
+&lt;p&gt;To actually run the Enigma simulator, the user must provide a &amp;lsquo;day key&amp;rsquo;, just as the original Enigma machine required. The day key describes the machine&amp;rsquo;s plugboard configuration, rotor order, and rotor offset. The neat thing about the day key of the Enigma was that it allowed for &lt;strong&gt;symmetrical&lt;/strong&gt; encipherment. That is to say, if my machine is set to a certain configuration, and your machine is set to a certain configuration, you can type in my encrypted text to retrieve the decrypted message. The day key comprises the settings of the machine, but also the key to decryption. In the end, irresponsible usage of these day keys resulted in &lt;a href=&#34;https://en.wikipedia.org/wiki/Cryptanalysis_of_the_Enigma#Rejewski&#39;s_characteristics_method&#34;&gt;the downfall of the Enigma&amp;rsquo;s &amp;ldquo;unbreakable&amp;rdquo; cipher&lt;/a&gt;. (When I first read about day keys, I was amused &amp;ndash; it&amp;rsquo;s just like a config map!)&lt;/p&gt;
+&lt;p&gt;Regarding the user interface, let it be known that I have an irrational infatuation with command-line interfaces. I tend to create things either to satisfy my own intellectual curiosity or to improve my own personal workflows, so I&amp;rsquo;m trying to get better about prioritizing &amp;lsquo;user experience&amp;rsquo; in the abstract. For this project however, I was in a real &amp;lsquo;text-based&amp;rsquo; phase. The interface for this simulation is basically just a series of print statements that I scatter at various points of the code, which made is easier for me to see how the machine was &amp;lsquo;working&amp;rsquo; at every step of the encryption process. The print statements were also more &amp;ldquo;narrative-based&amp;rdquo;, which was partially because I was fixated on &lt;a href=&#34;https://www.blaseball.com/landing&#34;&gt;Blaseball&lt;/a&gt; at the time (I&amp;rsquo;ll have to write about some of the Blaseball projects that I completed, at some point!).&lt;/p&gt;
+&lt;p&gt;Here is what the user sees when they try to encrypt the text &lt;code&gt;HI&lt;/code&gt; with the following day key:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(A,I) (J,F) (E,M) (Z,X) (W,O) (S,B)
+2 3 1
+K W O
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;img src=&#34;/projects/enigma/cli.png&#34;  alt=&#34;Enigma CLI&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px;&#34;  /&gt;
+
+
+&lt;p&gt;(Rotor 0 is what I call the reflector in this version of the project.)&lt;/p&gt;
+&lt;h2 id=&#34;post-mortem&#34;&gt;Post-Mortem&lt;/h2&gt;
+&lt;p&gt;I enjoyed working on this project, and it was great fun to implement a simulation while extrapolating requirements from history. That being said, there are a few things that I would do tweak if I opted to pour any additonal time into this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Testing.&lt;/strong&gt; 😅 I&amp;rsquo;m not really sure that what I have works! There are a few different Enigma simulators out there, and I found that when I used the same configuration with the same input text, it would return a different output than my simulator. Writing some tests, while tedious and complicated, would improve the functionality of this simulator.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Refactoring.&lt;/strong&gt; Even writing this blog post, I&amp;rsquo;m annoyed by some of the opportunities for refactoring that I can see throughout my code. The most glaring opportunity is to remove the concept of a &lt;code&gt;translate()&lt;/code&gt; and &lt;code&gt;reverseTranslate()&lt;/code&gt; method, and replace them with a single &lt;code&gt;translate()&lt;/code&gt; method that takes n &lt;code&gt;isReverse&lt;/code&gt; boolean.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Extending.&lt;/strong&gt; There are a lot of fun things that could be thrown into the simulator to extend its functionality. I can add more rotor wire specifications, or allow users to input their own. I can add support for a fourth rotor, which &lt;a href=&#34;https://en.wikipedia.org/wiki/Cryptanalysis_of_the_Enigma#M4_(German_Navy_4-rotor_Enigma)&#34;&gt;the German navy actually started using&lt;/a&gt; during the tail-end of the Enigma&amp;rsquo;s dominance. The simple design of the Enigma allows for a lot of creative modificaftions, and it would be fun to extend my program to use this.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To check out the GitHub repo for this project, &lt;a href=&#34;https://github.com/gibbyfree/enigma&#34;&gt;click this link!&lt;/a&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

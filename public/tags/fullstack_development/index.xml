@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fullstack_development on Gibby Free</title>
+    <link>/tags/fullstack_development/</link>
+    <description>Recent content in fullstack_development on Gibby Free</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/fullstack_development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Engineering at Reprise</title>
+      <link>/experience/reprise/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/experience/reprise/</guid>
+      <description>Reprise is a product-led growth platform that specializes in the creation of demos and product tours. Using Reprise&amp;rsquo;s browser extension, a user is able to capture their website or web application. This capture is parsed by the extension, and the user can ues Reprise&amp;rsquo;s editor to directly modify the behavior and appearance of their demo. This no-code editor enables always-on, infrastructure-less views into the user&amp;rsquo;s application or webpage, allowing companies to create demos for their products without having to go through the trouble of configuring, enabling, and maintaining a fickle demo environment.</description>
+      <content>&lt;p&gt;Reprise is a product-led growth platform that specializes in the creation of demos and product tours. Using Reprise&amp;rsquo;s browser extension, a user is able to capture their website or web application. This capture is parsed by the extension, and the user can ues Reprise&amp;rsquo;s editor to directly modify the behavior and appearance of their demo. This no-code editor enables always-on, infrastructure-less views into the user&amp;rsquo;s application or webpage, allowing companies to create demos for their products without having to go through the trouble of configuring, enabling, and maintaining a fickle demo environment.&lt;/p&gt;
+&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;As I&amp;rsquo;ve recently begun working at Reprise, it&amp;rsquo;s impossible for me to encapsulate my experience thus far. This is the smallest and most dynamic startup that I have worked at, and so the nature of my work is changing all of the time. Broadly speaking, my work at Reprise has involved improving the usability, performance, and functionality of our products. This includes Reprise&amp;rsquo;s Screen Capture offering, as well as their experimental Live Demo product, which allows users to capture sandboxed versions of complex web applications.&lt;/p&gt;
+&lt;p&gt;I have enjoyed the unique problems (and innovative solutions) that I&amp;rsquo;ve been exposed to while working at Reprise. The tech stack consists of a Vue.js / TypeScript front-end, and a Django backend. I&amp;rsquo;ve loved working with these technologies on my own personal time, and it&amp;rsquo;s awesome to be able to work with them professionally. In addition, this is my first role where I&amp;rsquo;ve had so much hands-on work with browser extensions. The use of the extension, along with the cutting-edge nature of our browser-based no-code editor, has led me to learn a lot about the inner workings of web browsers. I&amp;rsquo;m challenged by the nuances of this kind of &amp;ldquo;low-level&amp;rdquo; web development, but I&amp;rsquo;m also greatly motivated by the wide open undiscovered space in front of me!&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
