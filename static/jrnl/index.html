@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>J4</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"
+      charset="utf-8"
+    ></script>
+    <link rel="stylesheet" href="cal-heatmap.css" />
+    <script type="text/javascript" src="cal-heatmap.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="cal-heatmap" style="margin-top: 50px;"></div>
+    <div class="popup-call cheryl">
+        <div class="popup-text-cheryl">
+            <button class="click-popup-close"
+                    onclick="document.querySelector('.popup-call').classList.remove('popup-call-show');">
+            Close
+            </button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var cal_c = new CalHeatMap();
+        cal_c.init({
+            start: new Date(2022, 2, 1),
+            data: "cheryl-data.json",
+            legend: [3, 6, 9, 12, 16],
+            highlight: new Date(2022, 2, 22),
+            domain: "month",
+            range: 1,
+            cellSize: 20,
+            cellRadius: 3,
+            legendOrientation: "vertical",
+            legendVerticalPosition: "center",
+            domainLabelFormat: "Cheryl",
+            itemNamespace: "cal_c",
+            subDomain: "x_day",
+            legendColors: {
+                min: "#b2c4f3",
+                max: "#234396",
+            },
+            subDomainTitleFormat: {
+                filled: "{count} {name}",
+                empty: "Post-marathon",
+            },
+            tooltip: true,
+            itemName: "mile",
+            onClick: function (date, nb) {
+                console.log("click")
+                document.querySelector(".popup-call").classList.add("popup-call-show");
+            },
+        });
+        var cal_t = new CalHeatMap();
+        cal_t.init({
+        nth: 1,
+        domain: "month",
+        range: 1,
+        cellSize: 20,
+        cellRadius: 3,
+        displayLegend: false,
+        domainLabelFormat: "Tanya",
+        itemNamespace: "cal_t",
+        subDomain: "x_day",
+        start: new Date(2022, 2, 1),
+        data: "tanya-data.json",
+        legend: [3, 6, 9, 12, 16],
+        highlight: new Date(2022, 2, 22),
+        legendColors: {
+          min: "#a6b7e5",
+          max: "#234396",
+        },
+        subDomainTitleFormat: {
+            filled: "{count} {name}",
+            empty: "Post-marathon",
+        },
+        tooltip: true,
+        itemName: "mile",
+        onClick: function (date, nb) {
+            console.log("hello world2")
+        },
+      });
+        var cal_d = new CalHeatMap();
+        cal_d.init({
+        nth: 2,
+        domain: "month",
+        range: 1,
+        cellSize: 20,
+        cellRadius: 3,
+        displayLegend: false,
+        domainLabelFormat: "Dani",
+        itemNamespace: "cal_d",
+        subDomain: "x_day",
+        legendColors: {
+          min: "#a6b7e5",
+          max: "#234396",
+        },
+        subDomainTitleFormat: {
+            filled: "{count} {name}",
+            empty: "Post-marathon",
+        },
+        start: new Date(2022, 2, 1),
+        data: "dani-data.json",
+        legend: [3, 6, 9, 12, 16],
+        highlight: new Date(2022, 2, 22),
+        itemName: "mile",
+        tooltip: true,
+        onClick: function (date, nb) {
+          console.log("hello world3")
+        },
+      });
+    </script>  
+  </body>
+</html>
