@@ -1,5 +1,9 @@
 /* Cal-HeatMap CSS */
 
+body {
+	background-color: #fff;
+}
+
 p {
 	font-family: 'Helvetica', 'Arial', sans-serif;
 	color: #234396;
