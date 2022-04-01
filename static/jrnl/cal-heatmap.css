@@ -1,5 +1,10 @@
 /* Cal-HeatMap CSS */
 
+p {
+	font-family: 'Helvetica', 'Arial', sans-serif;
+	color: #234396;
+}
+
 .click-popup-close{
 	background:#234396;
 	border:0;
@@ -9,16 +14,11 @@
 	padding:10px;
   }
 
-.popup-text-cheryl {
-	float:left;
-	width:50%;
-}
-
 .popup-call {
 	position:fixed;
 	text-align:left;
 	z-index:9999;
-	margin:auto;
+	margin-left:30px;
 	clear:both;
 	height:250px;
 	width:600px;
@@ -28,10 +28,11 @@
 	top:0;
 	bottom:0;
 	box-shadow:0px 0px 10px rgba(0, 0, 0, 0.3);
-	background:#fff;
+	background:#F0C47A;
 	opacity:0;
 	transform:scale(0);
 	transition: 0.5s ease all;
+	border-radius: 3px;
 }
 
 .popup-call-show{
@@ -154,7 +155,7 @@ Remove comment to apply this style to date with value equal to 0
 }
 
 .ch-tooltip {
-	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+	font-family: 'Helvetica', 'Arial', sans-serif;
 	padding: 10px;
 	background: #222;
 	color: #bbb;
