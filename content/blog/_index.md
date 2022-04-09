@@ -1,5 +1,5 @@
 +++
-title = "Projects"
+title = "Blog"
 date = "2021-02-21"
 author = "Gibby"
 description = ""
