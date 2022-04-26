@@ -54,4 +54,79 @@ When I began this new project, several years after this R moment, I considered r
 
 You can imagine that I was thrilled to find [Cal-Heatmap](https://cal-heatmap.com/). It looked slick, interactive, and there was a lot of room for configuration. Best of all, since it was all open-source and built off of js, I could theoretically hack it however I wanted.
 
-For my viz, I had a clear viz-ion (haha) in my mind from the jump. I wanted to juxtapose the three training plans that I was given, with a heatmap that indicates intensity in some way. 
+For my viz, I had a clear viz-ion (haha) in my mind from the jump. I wanted to juxtapose the three training plans that I was given, with a heatmap that indicates intensity in some way. Presenting three identical calendars in juxtaposition turned out to be harder than I thought. This library is intended for more GitHub Contribution-esque visualizations. Either way, it's simple enough to construct multiple visualizations with this library.
+
+The required data format of Cal-Heatmap was challenging to work with. Rather than taking dates in a format like `MM-DD-YYYY`, it took in Unix epoch times. Due to limitations in my data, I only graphed two weeks of training plans, but if I were working with a larger date range, I probably would have written something to automate the generation of the input .json rather than going back and forth with [EpochConverter](https://www.epochconverter.com/).
+
+{{< code language="json" title="example of cal-heatmap input" id="2" isCollapsed="false" >}}
+{
+    "1646136000": 10,
+    "1646222400": 6,
+    "1646308800": 0,
+    "1646395200": 4,
+    "1646481600": 6,
+    "1646568000": 16,
+    "1646654400": 0,
+    "1646740800": 7,
+    "1646827200": 11,
+    "1646913600": 0,
+}
+{{< /code >}}
+
+Creating the three identical calendars was simple enough, but as I added interactivity to the visualizations I started to run into issues. Although I can provide an `itemNamespace` to an instance of a calendar to isolate click events between namespaces, Cal-Heatmap was evidently not created with this use case in mind. If tooltips are enabled on multiple visualizations, the tooltip's data will be correct but it will always render above the cells of the **first** visualization.
+
+### Debugging Cal-Heatmap
+
+I tried several things to workaround this issue. All failed for various reasons.
+
+#### Change the epoch time by a couple of digits.
+
+I was aware that Cal-HeatMap was calculating tooltip positioning based on the dates of each calendar.
+
+{{< code language="javascript" title="cal-heatmap source code: d.t is datetime" id="3" isCollapsed="false" >}}
+var tooltipPositionX = 
+        self.positionSubDomainX(d.t, true) - self.tooltip[0][0].offsetWidth/2 + options.cellSize/2;
+var tooltipPositionY = 
+        self.positionSubDomainY(d.t) - self.tooltip[0][0].offsetHeight - options.cellSize/2;
+{{< /code >}}
+
+I thought I could be clever and fool the system by inputting Unix epoch times that corresponded to the same day, but differed by an hour or so each (i.e `1646136000` and `1651011721`). Unfortunately, Cal-HeatMap rounds the provided Unix epoch times after input, up to 11:59PM on that day or something like that. (What's the point of even inputting Unix epoch in the first place then...?)
+
+#### Create isolated contexts for each map by using iframes.
+
+Full disclosure, this is one of the more depraved things that I've ever done. Originally, I had a plain ole `index.html` that I was creating multiple maps in. I knew that the issue was with the calendars being able to 'see' one another's data. So what if they couldn't? I change my base page to look like this:
+
+{{< code language="html" title="monstrosity" id="4" isCollapsed="false" >}}
+<iframe src="calendar-a.html"></iframe>
+<iframe src="calendar-b.html"></iframe>
+<iframe src="calendar-c.html"></iframe>
+{{< /code >}}
+
+Should work, right? I had to do some finagling to make everything look correct. I had to do the classic `onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';"` hack to ensure that the iframes were sized correctly. But technically, this fix worked! The only issue that I had? I'm bad when it comes to working with HTML and CSS from scratch :slightly_smiling_face:... There's a reason why my personal website is created with Hugo. I really struggled with getting the iframes to align and scale properly, and given my time constraint I didn't have much time to figure it out.
+
+In addition, my team wanted me to construct a third element of the visualization. They wanted to add the ability to click on a calendar and view a popup that describes that runner's training plan in further detail. The front-end of this work would've been nightmarish to coordinate with three separate iframes, so I abandoned this lead.
+
+#### Find calendar months that /look/ the same as April 2021, but are different
+
+I spent about 20 minutes scrolling through calendar pictures on Google Images and then I gave up. But I think it would be fun to write a program that tries to figure this out for you.
+
+#### Final solution: modify the source code
+
+As I mentioned before, Cal-Heatmap calculates tooltip position based on the time that is input. I spent some time staring at the positioning source code before realizing that the fix was much, much simpler than I thought. I created a new property of the calendar object called `nth`, which simply represented the `nth` order of the calendar in a horizontal set of calendars. It's basically the calendar's index.
+
+In the Cal-Heatmap source code, I take in this property and use it to offset the tooltip's x-positioning on render. The x-positioning is the only thing that mattered in my case, but if you had a large enough set of calendars, `nth` would probably have to be a two-dimensional index. The change itself was pretty minor:
+
+{{< code language="javascript" title="nth margin change" id="5" isCollapsed="false" >}}
+positionSubDomainX: function(d, b) {
+		"use strict";
+
+		var index = this._domainType[this.options.subDomain].position.x(new Date(d));
+		var nthMargin = this.options.nth !== 0 && b ? 200 * this.options.nth : 0;
+		nthMargin = this.options.nth == 2 && b ? nthMargin - 15 : nthMargin + 0;
+		return index * this.options.cellSize + index * this.options.cellPadding + nthMargin;
+	},
+{{< /code >}}
+
+## Fruits of my Labor
+
+<iframe src="https://gibby.dev/jrnl/"></iframe>
