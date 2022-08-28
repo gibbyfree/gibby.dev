@@ -1356,14 +1356,13 @@ body .gist .blob-code-inner,body .gist .blob-num{
     border:none
 }
 .portfolio-grid{
-    padding-left: 40px;
     padding-right: 40px;
     padding-top: 40px;
-    max-width:70%;
+    max-width:80%;
     margin: auto;
     display:grid;
     grid-gap:10px;
-    grid-template-columns:repeat(3,minmax(185px,1fr))
+    grid-template-columns:repeat(4,minmax(185px,1fr))
 }
 @media (max-width:683px){
     .portfolio-grid{
