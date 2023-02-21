@@ -1395,10 +1395,8 @@ body .gist .blob-code-inner,body .gist .blob-num{
 .portfolio-grid-item-name{
     align-items:center;
     text-decoration:none;
-    background:#78e2a0;
-    background:#ffa86a;
-    background:var(--accent);
-    color:#000;
+    background:rgb(34, 33, 41);
+    color:white;
     padding:5px 10px;
     float:left;
     position:absolute;
