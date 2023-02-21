@@ -640,9 +640,6 @@ hr{
 .button.previous .button__icon{
     margin-right:8px
 }
-.index-content{
-    margin-top:20px
-}
 .framed{
     border:1px solid #ff6266;
     border:1px solid var(--accent);
