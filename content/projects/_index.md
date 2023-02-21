@@ -6,4 +6,4 @@ description = ""
 showFullContent = false 
 +++
 
-Here are some write-ups about projects that I've completed over the years -- more to come all the time!
+Blogs about things I made.

@@ -13,6 +13,7 @@ enableEmoji = true
   centerTheme = true
   singlePageSite = true
   readingTime = true
+  enableGitInfo = true
 
 [params.twitter]
   creator = ""
@@ -44,22 +45,22 @@ enableEmoji = true
         url = "/#about"
         weight = 1
       [[languages.en.menu.main]]
-        identifier = "experience"
-        name = "Experience"
-        url = "/experience"
+        identifier = "blog"
+        name = "Blog"
+        url = "/blog"
         weight = 2
-      [[languages.en.menu.main]]
-        identifier = "skills"
-        name = "Skills"
-        url = "/#skills"
-        weight = 3
       [[languages.en.menu.main]]
         identifier = "projects"
         name = "Projects"
         url = "/projects"
+        weight = 3
+      [[languages.en.menu.main]]
+        identifier = "experience"
+        name = "Experience"
+        url = "/experience"
         weight = 4
       [[languages.en.menu.main]]
-        identifier = "blog"
-        name = "Blog"
-        url = "/blog"
+        identifier = "skills"
+        name = "Skills"
+        url = "/#skills"
         weight = 5

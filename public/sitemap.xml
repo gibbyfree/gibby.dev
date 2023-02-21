@@ -2,29 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/experience/</loc>
-    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+    <loc>/tags/backend_development/</loc>
+    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/fullstack_development/</loc>
-    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+    <loc>/experience/</loc>
+    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/</loc>
+    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/infrastructure/</loc>
+    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/experience/microsoft/</loc>
+    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/fullstack_development/</loc>
     <lastmod>2022-01-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/experience/reprise/</loc>
     <lastmod>2022-01-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/web_development/</loc>
     <lastmod>2022-01-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/backend_development/</loc>
-    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/infrastructure/</loc>
-    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/microservices/</loc>
     <lastmod>2021-08-01T00:00:00+00:00</lastmod>

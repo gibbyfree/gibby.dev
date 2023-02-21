@@ -1356,10 +1356,9 @@ body .gist .blob-code-inner,body .gist .blob-num{
     border:none
 }
 .portfolio-grid{
-    padding-left: 40px;
     padding-right: 40px;
     padding-top: 40px;
-    max-width:70%;
+    max-width:80%;
     margin: auto;
     display:grid;
     grid-gap:10px;
@@ -1367,12 +1366,12 @@ body .gist .blob-code-inner,body .gist .blob-num{
 }
 @media (max-width:683px){
     .portfolio-grid{
-        grid-template-columns:repeat(4,minmax(150px,1fr))
+        grid-template-columns:repeat(auto-fit,minmax(150px,1fr))
     }
 }
 @media (--phone){
     .portfolio-grid{
-        grid-template-columns:repeat(4,minmax(150px,1fr))
+        grid-template-columns:repeat(auto-fit,minmax(150px,1fr))
     }
 }
 .portfolio-grid-item{
