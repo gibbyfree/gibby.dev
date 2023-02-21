@@ -12,11 +12,12 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/homepage/about/</guid>
-      <description>Greetings, friend! My name is Gibby [gɪ.bi:] and I&amp;rsquo;m a Software Engineer at Reprise. I am most invigorated by backend development, programming languages, natural language processing, and systems architecture. I&amp;rsquo;m currently based in Boston.
-Outside of computing, I also enjoy spoken languages, small keyboards, cooking, narrative nonfiction, puzzles, the great outdoors, and just about anything else that sets off electrical impulses in my brain. Welcome to my funny little corner of the World Wide Web :~)</description>
-      <content>&lt;p&gt;&lt;strong&gt;Greetings, friend!&lt;/strong&gt; My name is Gibby [gɪ.bi:] and I&amp;rsquo;m a Software Engineer at Reprise. I am most invigorated by backend development, programming languages, natural language processing, and systems architecture. I&amp;rsquo;m currently based in Boston.&lt;/p&gt;
-&lt;p&gt;Outside of computing, I also enjoy spoken languages, small keyboards, cooking, narrative nonfiction, puzzles, the great outdoors, and just about anything else that sets off electrical impulses in my brain. Welcome to my funny little corner of the World Wide Web :~)&lt;/p&gt;
-&lt;p&gt;Connect with me via: &lt;a href=&#34;https://github.com/gibbyfree&#34;&gt;GitHub&lt;/a&gt; ∨ &lt;a href=&#34;https://www.linkedin.com/in/gibbyfree/&#34;&gt;LinkedIn&lt;/a&gt; ∨ &lt;a href=&#34;mailto:gibbytfree@gmail.com&#34;&gt;Email&lt;/a&gt;&lt;/p&gt;
+      <description>Greetings! My name is Gibby [gɪb.i:] and I&amp;rsquo;m a Software Engineer at Microsoft. I am most invigorated by programming languages, compilers, and systems programming. I&amp;rsquo;m currently based in Seattle.
+Outside of computing, I also enjoy spoken languages, small keyboards, cooking, narrative nonfiction, puzzles, the great outdoors, and just about anything else that sets off electrical impulses in my brain. Here, I write about many of those things.
+Connect with me via: GitHub ∨ LinkedIn ∨ Email</description>
+      <content>&lt;p&gt;&lt;strong&gt;Greetings!&lt;/strong&gt; My name is Gibby [gɪb.i:] and I&amp;rsquo;m a Software Engineer at Microsoft. I am most invigorated by programming languages, compilers, and systems programming. I&amp;rsquo;m currently based in Seattle.&lt;/p&gt;
+&lt;p&gt;Outside of computing, I also enjoy spoken languages, small keyboards, cooking, narrative nonfiction, puzzles, the great outdoors, and just about anything else that sets off electrical impulses in my brain. Here, I write about many of those things.&lt;/p&gt;
+&lt;p&gt;Connect with me via: &lt;a href=&#34;https://github.com/gibbyfree&#34;&gt;GitHub&lt;/a&gt; ∨ &lt;a href=&#34;https://www.linkedin.com/in/gibbyfree/&#34;&gt;LinkedIn&lt;/a&gt; ∨ &lt;a href=&#34;mailto:gib@gibby.dev&#34;&gt;Email&lt;/a&gt;&lt;/p&gt;
 </content>
     </item>
     
@@ -59,6 +60,9 @@ Outside of computing, I also enjoy spoken languages, small keyboards, cooking, n
 
 &lt;/td&gt;
 &lt;td&gt;
+  &lt;img src=&#34;/icon/csharp.svg&#34;  alt=&#34;C&amp;#43;&amp;#43;&#34;  class=&#34;left&#34;  style=&#34;max-height: 10%; max-width: 10%; filter: invert(100%) sepia(23%) saturate(1511%) hue-rotate(222deg) brightness(103%) contrast(110%);&#34;  /&gt;
+
+
   &lt;img src=&#34;/icon/cplusplus.svg&#34;  alt=&#34;C&amp;#43;&amp;#43;&#34;  class=&#34;left&#34;  style=&#34;max-height: 10%; max-width: 10%; filter: invert(100%) sepia(23%) saturate(1511%) hue-rotate(222deg) brightness(103%) contrast(110%);&#34;  /&gt;
 
 

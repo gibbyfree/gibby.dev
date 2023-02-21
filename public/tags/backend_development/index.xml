@@ -6,7 +6,18 @@
     <description>Recent content in backend_development on Gibby Free</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/backend_development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/backend_development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Engineering at Microsoft</title>
+      <link>/experience/microsoft/</link>
+      <pubDate>Sun, 28 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/experience/microsoft/</guid>
+      <description>It&amp;rsquo;s an honor and a privilege to be able to work at a company with such a rich history in the world of computing. I have only been with Microsoft for a short time, so I&amp;rsquo;m at pains to introduce a friend I&amp;rsquo;ve barely met 🙂 Currently, I live within Engineering Systems at Microsoft. My day-to-day work strives to improve the developer experience at Microsoft, which in turn improves the quality of what is ultimately delivered to Microsoft&amp;rsquo;s gargantuan customer base.</description>
+      <content>&lt;p&gt;It&amp;rsquo;s an honor and a privilege to be able to work at a company with such a rich history in the world of computing. I have only been with Microsoft for a short time, so I&amp;rsquo;m at pains to introduce a friend I&amp;rsquo;ve barely met 🙂 Currently, I live within Engineering Systems at Microsoft. My day-to-day work strives to improve the developer experience at Microsoft, which in turn improves the quality of what is ultimately delivered to Microsoft&amp;rsquo;s gargantuan customer base. I&amp;rsquo;m driven to learn all that I can from my brilliant teammates, and from the general aura of brilliance that can be found in Microsoft&amp;rsquo;s engineering organization.&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>Software Engineering at Cogito</title>
       <link>/experience/cogito/</link>

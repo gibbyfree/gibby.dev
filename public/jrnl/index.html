@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>J4</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"
+      charset="utf-8"
+    ></script>
+    <link rel="stylesheet" href="cal-heatmap.css" />
+    <script type="text/javascript" src="cal-heatmap.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <p>Click any cell of a runner's calendar to learn more about their training plans.</p>
+    <div id="cal-heatmap" style="margin-top: 50px;"></div>
+    <div class="popup-call cheryl">
+        <div class="popup-text-cheryl">
+            <p>
+              Cheryl Louden is running for the first time this year to honor her late sister, whose dream was to come to Boston to run the marathon. She picked up running shortly after her sister passed away last year to carry on her sister's passions, as well as to give herself a goal to work toward. Due to the weather conditions in Fond du Lac, Wisconsin where she lives, much of her training has been indoors on treadmills, or have involved weather sleet, ice, and snow. She has racked up almost 2000 miles over the past year, and has started the process of tapering her miles in preparation for the race. 
+            </p>
+            <button class="click-popup-close"
+                    onclick="document.querySelector('.cheryl').classList.remove('popup-call-show');">
+            Close
+            </button>
+        </div>
+    </div>
+    <div class="popup-call tara">
+      <div class="popup-text-tara">
+          <p>
+            Tara Bharadwaj is running the marathon for the first time, and to prepare, she and a mentor from her running club created a detailed plan and training schedule. Bharadwaj grew up playing soccer and basketball, as well as cross country, so for her, athletic training was incredibly familiar. Training for the marathon as a new graduate on her own schedule serves as a reminder that she can commit to a habit made to better herself. Tara is running her longest run this weekend, at 21 miles, and will begin tapering after some rest days.
+          </p>
+          <button class="click-popup-close"
+                  onclick="document.querySelector('.tara').classList.remove('popup-call-show');">
+          Close
+          </button>
+      </div>
+    </div>
+    <div class="popup-call dani">
+      <div class="popup-text-dani">
+          <p>
+            First-time marathon runner Dani Lonati mapped out an 18-week training plan to prepare for the race. Her experience as a soccer player at Colby College made following a schedule easier. For Lonati, the most challenging parts of training were completing the longer 12 mile runs in frigid weather and training alone. As the race approaches, Lonati has completed her longest training run of 20 miles and will begin to gradually taper her miles.
+          </p>
+          <button class="click-popup-close"
+                  onclick="document.querySelector('.dani').classList.remove('popup-call-show');">
+          Close
+          </button>
+      </div>
+    </div>
+    <script type="text/javascript">
+        var cal_c = new CalHeatMap();
+        cal_c.init({
+            start: new Date(2022, 2, 1),
+            data: "cheryl-data.json",
+            legend: [3, 6, 9, 12, 16],
+            highlight: new Date(2022, 2, 22),
+            domain: "month",
+            range: 1,
+            cellSize: 20,
+            cellRadius: 3,
+            legendOrientation: "vertical",
+            legendVerticalPosition: "center",
+            domainLabelFormat: "Cheryl",
+            itemNamespace: "cal_c",
+            subDomain: "x_day",
+            legendColors: {
+                min: "#b2c4f3",
+                max: "#234396",
+            },
+            subDomainTitleFormat: {
+                filled: "{count} {name}",
+                empty: "Post-marathon",
+            },
+            tooltip: true,
+            itemName: "mile",
+            onClick: function (date, nb) {
+                console.log("click")
+                document.querySelector(".cheryl").classList.add("popup-call-show");
+            },
+        });
+        var cal_t = new CalHeatMap();
+        cal_t.init({
+        nth: 1,
+        domain: "month",
+        range: 1,
+        cellSize: 20,
+        cellRadius: 3,
+        displayLegend: false,
+        domainLabelFormat: "Tara",
+        itemNamespace: "cal_t",
+        subDomain: "x_day",
+        start: new Date(2022, 2, 1),
+        data: "tanya-data.json",
+        legend: [3, 6, 9, 12, 16],
+        highlight: new Date(2022, 2, 22),
+        legendColors: {
+          min: "#a6b7e5",
+          max: "#234396",
+        },
+        subDomainTitleFormat: {
+            filled: "{count} {name}",
+            empty: "Post-marathon",
+        },
+        tooltip: true,
+        itemName: "mile",
+        onClick: function (date, nb) {
+          console.log("click")
+          document.querySelector(".tara").classList.add("popup-call-show");
+        },
+      });
+        var cal_d = new CalHeatMap();
+        cal_d.init({
+        nth: 2,
+        domain: "month",
+        range: 1,
+        cellSize: 20,
+        cellRadius: 3,
+        displayLegend: false,
+        domainLabelFormat: "Dani",
+        itemNamespace: "cal_d",
+        subDomain: "x_day",
+        legendColors: {
+          min: "#a6b7e5",
+          max: "#234396",
+        },
+        subDomainTitleFormat: {
+            filled: "{count} {name}",
+            empty: "Post-marathon",
+        },
+        start: new Date(2022, 2, 1),
+        data: "dani-data.json",
+        legend: [3, 6, 9, 12, 16],
+        highlight: new Date(2022, 2, 22),
+        itemName: "mile",
+        tooltip: true,
+        onClick: function (date, nb) {
+          console.log("click")
+          document.querySelector(".dani").classList.add("popup-call-show");
+        },
+      });
+    </script>  
+  </body>
+</html>
