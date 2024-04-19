@@ -1,66 +1,112 @@
 baseURL = '/'
 languageCode = 'en-us'
 title = 'Gibby Free'
-theme = "terminal"
+theme = "risotto"
 enableEmoji = true
 
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+# prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
+# See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
+ignoreErrors = ["error-remote-getjson"]
+
 [params]
-  contentTypeName = "blog"
-  themeColor = "pink"
-  showMenuItems = 6
-  fullWidthTheme = false
-  favicon = "/img/kb.png"
-  centerTheme = true
-  singlePageSite = true
-  readingTime = true
-  enableGitInfo = true
+noindex = false
 
-[params.twitter]
-  creator = ""
-  site = ""
+[params.theme]
+palette = "tender"
 
-[languages]
-  [languages.en]
-    title = "Gibby Free"
-    subtitle = ""
-    keywords = ""
-    copyright = ""
-    menuMore = "Check out more"
-    readMore = "Read more"
-    readOtherPosts = "Read other posts"
-    newerPosts = "Newer posts"
-    olderPosts = "Older posts"
-    missingContentMessage = "Page not found..."
-    missingBackButtonLabel = "Back to home page"
+# Sidebar: about/bio
+[params.about]
+title = "Gibby Free"
+description = "Software Engineer @ MSFT."
+# unicode/emoji logo:
+logo = "https://em-content.zobj.net/source/microsoft/319/dotted-line-face_1fae5.png"
+# or use an image:
+#logo_image = "images/rice.svg"
 
-    [languages.en.params.logo]
-      logoText = "Gibby Free // Software Engineer"
-      logoSplit = " / "   # Places logo text blocks in to spans so they wrap nicely
-      logoHomeLink = "/"
+# Sidebar: social links
+# Available icon sets:
+# * FontAwesome 6 <https://fontawesome.com/> ('fa-brands', 'fa-normal', or 'fa-solid' for brands)
+# * Academicons <https://jpswalsh.github.io/academicons> ('ai ai-')
 
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/#about"
-        weight = 1
-      [[languages.en.menu.main]]
-        identifier = "blog"
-        name = "Blog"
-        url = "/blog"
-        weight = 2
-      [[languages.en.menu.main]]
-        identifier = "projects"
-        name = "Projects"
-        url = "/projects"
-        weight = 3
-      [[languages.en.menu.main]]
-        identifier = "experience"
-        name = "Experience"
-        url = "/experience"
-        weight = 4
-      [[languages.en.menu.main]]
-        identifier = "skills"
-        name = "Skills"
-        url = "/#skills"
-        weight = 5
+[[params.socialLinks]]
+icon = "fa-brands fa-github"
+title = "GitHub"
+url = "https://github.com/gibbyfree/"
+
+[[params.socialLinks]]
+icon = "fa-solid fa-envelope"
+title = "Email"
+url = "mailto:gib@gibby.dev"
+
+[[params.socialLinks]]
+icon = "fa-brands fa-linkedin"
+title = "LinkedIn"
+url = "https://www.linkedin.com/in/gibbyfree/"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/post/"
+    weight = 20
+
+
+  [[menu.main]]
+    identifier = "experience"
+    name = "Experience"
+    url = "/experience/"
+    weight = 30
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+# For hugo >= 0.60.0, enable inline HTML
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup]
+
+  # Table of contents
+  # Add toc = true to content front matter to enable
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel   = 3
+    ordered    = true
+
+[privacy]
+
+  [privacy.vimeo]
+    disabled = false
+    simple = true
+
+  [privacy.twitter]
+    disabled = false
+    enableDNT = true
+    simple = true
+
+  [privacy.instagram]
+    disabled = false
+    simple = true
+
+  [privacy.youtube]
+    disabled = false
+    privacyEnhanced = true
+
+[services]
+
+  [services.instagram]
+    disableInlineCSS = true
+
+  [services.twitter]
+    disableInlineCSS = true

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Experience on Gibby Free</title>
+    <link>//localhost:1313/tags/experience/</link>
+    <description>Recent content in Experience on Gibby Free</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//localhost:1313/tags/experience/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Experience</title>
+      <link>//localhost:1313/experience/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/experience/</guid>
+      <description>Since 2022, I&amp;rsquo;ve been a Software Engineer at Microsoft. Developers, developers, developers! I develop internal tooling and infrastructure for developers in Windows and Azure.&#xA;Past experience includes:&#xA;Full-stack web development @ Reprise Platform engineering @ Cogito Test automation @ Carbonite Languages I love to use:&#xA;Rust TypeScript C# </description>
+    </item>
+  </channel>
+</rss>

@@ -2,84 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/tags/backend_development/</loc>
-    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/</loc>
   </url><url>
-    <loc>/experience/</loc>
-    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/about/</loc>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/tags/blog/</loc>
   </url><url>
-    <loc>/tags/infrastructure/</loc>
-    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/categories/</loc>
   </url><url>
-    <loc>/experience/microsoft/</loc>
-    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/tags/experience/</loc>
   </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2022-08-28T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/experience/</loc>
   </url><url>
-    <loc>/tags/fullstack_development/</loc>
-    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/tags/posts/</loc>
   </url><url>
-    <loc>/experience/reprise/</loc>
-    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/post/</loc>
   </url><url>
-    <loc>/tags/web_development/</loc>
-    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/series/</loc>
   </url><url>
-    <loc>/tags/microservices/</loc>
-    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/tags/skills/</loc>
   </url><url>
-    <loc>/experience/cogito/</loc>
-    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/</loc>
-    <lastmod>2021-02-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/projects/</loc>
-    <lastmod>2021-02-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/aoc-2021/</loc>
-    <lastmod>2020-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/cli/</loc>
-    <lastmod>2020-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/competitive_programming/</loc>
-    <lastmod>2020-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/crytography/</loc>
-    <lastmod>2020-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/java/</loc>
-    <lastmod>2020-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/nim/</loc>
-    <lastmod>2020-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/programming_languages/</loc>
-    <lastmod>2020-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/projects/enigma/</loc>
-    <lastmod>2020-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/api_development/</loc>
-    <lastmod>2020-04-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/experience/carbonite/</loc>
-    <lastmod>2020-04-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/testing/</loc>
-    <lastmod>2020-04-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/homepage/about/</loc>
-  </url><url>
-    <loc>/categories/</loc>
-  </url><url>
-    <loc>/homepage/</loc>
-  </url><url>
-    <loc>/homepage/skills/</loc>
+    <loc>//localhost:1313/tags/</loc>
   </url>
 </urlset>
