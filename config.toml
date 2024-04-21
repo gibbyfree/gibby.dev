@@ -1,9 +1,8 @@
 baseURL = '/'
-languageCode = 'en-us'
 title = 'Gibby Free'
 theme = "risotto"
 enableEmoji = true
-
+languageCode = "en"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
 # prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
@@ -14,12 +13,12 @@ ignoreErrors = ["error-remote-getjson"]
 noindex = false
 
 [params.theme]
-palette = "tender"
+palette = "harmonic16-dark"
 
 # Sidebar: about/bio
 [params.about]
 title = "Gibby Free"
-description = "Software Engineer @ MSFT."
+description = "Software Engineer."
 # unicode/emoji logo:
 logo = "https://em-content.zobj.net/source/microsoft/319/dotted-line-face_1fae5.png"
 # or use an image:
@@ -59,12 +58,6 @@ url = "https://www.linkedin.com/in/gibbyfree/"
     url = "/post/"
     weight = 20
 
-
-  [[menu.main]]
-    identifier = "experience"
-    name = "Experience"
-    url = "/experience/"
-    weight = 30
 
 [taxonomies]
 category = "categories"

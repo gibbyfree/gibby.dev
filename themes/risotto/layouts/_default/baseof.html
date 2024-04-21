@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="{{- site.Language.Lang -}}">
 
-    <head>
-        {{- partial "head.html" . -}}
-    </head>
+<head>
+    {{- partial "head.html" . -}}
+</head>
 
-    <body>
-        <div class="page">
+<body>
+    <div class="page">
 
-            <header class="page__header">
-                {{- partial "header.html" . -}}
-            </header>
+        <header class="page__header">
+            {{- partial "header.html" . -}}
+        </header>
 
-            <section class="page__body">
-                {{- block "main" . }}{{- end }}
-            </section>
+        <section class="page__body">
+            {{- block "main" . }}{{- end }}
+        </section>
 
-            <section class="page__aside">
-                <div class="aside__about">
-                    {{- partial "about.html" . -}}
-                </div>
-                <hr>
-                <div class="aside__content">
-                    {{- block "aside" . }}{{- end }}
-                </div>
-            </section>
+        {{ if and (in .Permalink "/post/") (not (strings.HasSuffix .Permalink "/post/")) }}
+        <section>
+            <script src="https://giscus.app/client.js" data-repo="gibbyfree/gibby.dev" data-repo-id="R_kgDOG2cQYA"
+                data-category="Announcements" data-category-id="DIC_kwDOG2cQYM4Ce0z7" data-mapping="pathname"
+                data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"
+                data-theme="https://giscus.app/themes/custom_example.csshttps://raw.githubusercontent.com/monicfenga/base16-styles/master/css-variables/base16-harmonic16-dark.css"
+                data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
+                </script>
+        </section>
+        {{ end }}
 
-            <footer class="page__footer">
-                {{- partial "footer.html" . -}}
-            </footer>
+        <section class="page__aside">
+            <div class="aside__about">
+                {{- partial "about.html" . -}}
+            </div>
+            <hr>
+            <div class="aside__content">
+                {{- block "aside" . }}{{- end }}
+            </div>
+        </section>
 
-        </div>
-    </body>
+    </div>
+
+    <footer class="page__footer">
+        {{- partial "footer.html" . -}}
+    </footer>
+
+</body>
 
 </html>

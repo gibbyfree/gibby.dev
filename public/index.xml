@@ -4,22 +4,15 @@
     <title>Gibby Free</title>
     <link>//localhost:1313/</link>
     <description>Recent content on Gibby Free</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <generator>Hugo 0.125.1</generator>
+    <language>en</language>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
+      <title>About</title>
       <link>//localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/about/</guid>
-      <description>aaa </description>
-    </item>
-    <item>
-      <title>Experience</title>
-      <link>//localhost:1313/experience/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/experience/</guid>
-      <description>Since 2022, I&amp;rsquo;ve been a Software Engineer at Microsoft. Developers, developers, developers! I develop internal tooling and infrastructure for developers in Windows and Azure.&#xA;Past experience includes:&#xA;Full-stack web development @ Reprise Platform engineering @ Cogito Test automation @ Carbonite Languages I love to use:&#xA;Rust TypeScript C# </description>
+      <description>I&amp;rsquo;ve been a Software Engineer at Microsoft since 2022. I develop internal tools and infrastructure for developers in Windows and Azure. Developers, developers, developers!&#xA;My past experience includes:&#xA;Full-stack web development @ Reprise Platform engineering @ Cogito Test automation @ Carbonite Languages that I love to use:&#xA;Rust TypeScript C# Ummm&amp;hellip;</description>
     </item>
   </channel>
 </rss>
