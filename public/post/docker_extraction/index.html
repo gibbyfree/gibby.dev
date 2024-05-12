@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>Static extraction of Docker image contents &ndash; Gibby Free</title>
+<meta name="description" content="software engineer &#43; distracted driver on information superhighway">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="//localhost:1313/css/palettes/harmonic16-dark.css">
+<link rel="stylesheet" href="//localhost:1313/css/risotto.css">
+<link rel="stylesheet" href="//localhost:1313/css/custom.css">
+<link rel="stylesheet" href="/css/syntax.css">
+
+
+
+
+
+
+
+</head>
+
+<body>
+    <div class="page">
+
+        <header class="page__header"><nav class="page__nav main-nav">
+    <ul>
+    <h1 class="page__logo"><a href="//localhost:1313/" class="page__logo-inner">Gibby Free</a></h1>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="//localhost:1313/about/" title="">About</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="//localhost:1313/post/" title="">Posts</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+        <section class="page__body">
+    <header class="content__header">
+        <h1>Static extraction of Docker image contents</h1>
+    </header>
+    <div class="content__body">
+        <p>Recently, I&rsquo;ve been grappling with Docker containers. When I build a dockerfile via <code>docker build</code>, my host machine has limited visibility into the containerized build process.</p>
+<p>This is by Docker design, but still presents a challenge if I want to monitor Docker builds at scale.</p>
+<p>I can move monitoring into the dockerfile itself, but then I run into another issue - how do I pull relevant artifacts <strong>out of</strong> the resulting Docker image? Bonus points if I can extract these artifacts <strong>without</strong> running Docker.</p>
+<style type="text/css">
+    .notice {
+        --root-color: #444;
+        --root-background: #eff;
+        --title-color: #fff;
+        --title-background: #7bd;
+        --warning-title: #c33;
+        --warning-content: #fee;
+        --info-title: #fb7;
+        --info-content: #fec;
+        --note-title: #6be;
+        --note-content: #e7f2fa;
+        --tip-title: #5a5;
+        --tip-content: #efe
+    }
+
+    @media (prefers-color-scheme:dark) {
+        .notice {
+            --root-color: #ddd;
+            --root-background: #eff;
+            --title-color: #fff;
+            --title-background: #7bd;
+            --warning-title: #800;
+            --warning-content: #400;
+            --info-title: #a50;
+            --info-content: #420;
+            --note-title: #069;
+            --note-content: #023;
+            --tip-title: #363;
+            --tip-content: #121
+        }
+    }
+
+    body.dark .notice {
+        --root-color: #ddd;
+        --root-background: #eff;
+        --title-color: #fff;
+        --title-background: #7bd;
+        --warning-title: #800;
+        --warning-content: #400;
+        --info-title: #a50;
+        --info-content: #420;
+        --note-title: #069;
+        --note-content: #023;
+        --tip-title: #363;
+        --tip-content: #121
+    }
+
+    .notice {
+        padding: 18px;
+        line-height: 24px;
+        margin-bottom: 24px;
+        border-radius: 4px;
+        color: var(--root-color);
+        background: var(--root-background)
+    }
+
+    .notice p:last-child {
+        margin-bottom: 0
+    }
+
+    .notice-title {
+        margin: -18px -18px 12px;
+        padding: 4px 18px;
+        border-radius: 4px 4px 0 0;
+        font-weight: 700;
+        color: var(--title-color);
+        background: var(--title-background)
+    }
+
+    .notice.warning .notice-title {
+        background: var(--warning-title)
+    }
+
+    .notice.warning {
+        background: var(--warning-content)
+    }
+
+    .notice.info .notice-title {
+        background: var(--info-title)
+    }
+
+    .notice.info {
+        background: var(--info-content)
+    }
+
+    .notice.note .notice-title {
+        background: var(--note-title)
+    }
+
+    .notice.note {
+        background: var(--note-content)
+    }
+
+    .notice.tip .notice-title {
+        background: var(--tip-title)
+    }
+
+    .notice.tip {
+        background: var(--tip-content)
+    }
+
+    .icon-notice {
+        display: inline-flex;
+        align-self: center;
+        margin-right: 8px
+    }
+
+    .icon-notice img,
+    .icon-notice svg {
+        height: 1em;
+        width: 1em;
+        fill: currentColor
+    }
+
+    .icon-notice img,
+    .icon-notice.baseline svg {
+        top: .125em;
+        position: relative
+    }
+</style><div class="notice info" >
+    <p class="notice-title">
+        <span class="icon-notice baseline">
+            <svg data-icon-name="chat-alt-3" data-style="glyph" icon_origin_id="2877" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="chat-alt-3" class="icon glyph" width="48" height="48"><path  d="M19.91,16.51A8.45,8.45,0,0,0,22,11c0-5-4.49-9-10-9S2,6,2,11s4.49,9,10,9a10.9,10.9,0,0,0,3-.41l4.59,2.3A.91.91,0,0,0,20,22a1,1,0,0,0,.62-.22,1,1,0,0,0,.35-1ZM8,12a1,1,0,1,1,1-1A1,1,0,0,1,8,12Zm4,0a1,1,0,1,1,1-1A1,1,0,0,1,12,12Zm4,0a1,1,0,1,1,1-1A1,1,0,0,1,16,12Z"></path></svg>
+
+        </span>Info</p><p>A Dockerfile contains a sequence of build instructions executed within an isolated (containerized) environment. These instructions generate a Docker image, which serve as a blueprint for container creation.</p>
+<p>When an image is executed, Docker creates a container based on the image, effectively reproducing the environment defined in the Dockerfile.</p>
+<p>Each instruction in a Dockerfile corresponds to an <em>image layer</em>. A given layer contains the delta between the current layer and the previous one, usually representing a change in the underlying container&rsquo;s filesystem or configuration.</p></div>
+
+<h1 id="setting-up-a-docker-image">Setting up a Docker image</h1>
+<p>Let&rsquo;s start by building a Docker image. Here&rsquo;s my motivating example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> rust:1.76.0-alpine3.18</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apk update <span class="o">&amp;&amp;</span> apk add strace<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> strace -o trace.log cargo build<span class="err">
+</span></span></span></code></pre></div>
+    </div>
+    <footer class="content__footer"></footer>
+
+        </section>
+
+        
+        <section>
+            <script src="https://giscus.app/client.js" data-repo="gibbyfree/gibby.dev" data-repo-id="R_kgDOG2cQYA"
+                data-category="Announcements" data-category-id="DIC_kwDOG2cQYM4Ce0z7" data-mapping="title"
+                data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"
+                data-theme="https://giscus.app/themes/custom_example.css"
+                data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
+                </script>
+        </section>
+        
+
+        <section class="page__aside">
+            <div class="aside__about">
+<div class="aside__about">
+    <img class="about__logo" src="https://em-content.zobj.net/source/microsoft/319/dotted-line-face_1fae5.png" alt="Logo">
+<h1 class="about__title">Gibby Free</h1>
+<p class="about__description">software engineer + distracted driver on information superhighway</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/gibbyfree/" rel="me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:gib@gibby.dev" rel="me" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="https://www.linkedin.com/in/gibbyfree/" rel="me" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+</ul>
+</div>
+            <hr>
+            <div class="aside__content">
+    <p>If a dockerfile is built in a container and no one is around to see it, does it make a sound?</p>
+    
+        <p>
+            
+            2024-04-24
+        </p>
+    
+
+    
+
+            </div>
+        </section>
+
+        <section>
+            <footer class="page__footer"><p class="copyright"></p>
+<p class="advertisement">Powered by <a href="https://gohugo.io/">hugo</a> and <a href="https://github.com/joeroe/risotto">risotto</a>.</p>
+</footer>
+        </section>
+    </div>
+
+</body>
+
+</html>

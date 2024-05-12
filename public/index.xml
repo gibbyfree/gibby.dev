@@ -6,13 +6,28 @@
     <description>Recent content on Gibby Free</description>
     <generator>Hugo 0.125.1</generator>
     <language>en</language>
+    <lastBuildDate>Sat, 04 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Pedal Steel: Equipment and Setup</title>
+      <link>//localhost:1313/post/pedal_steel_setup/</link>
+      <pubDate>Sat, 04 May 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/post/pedal_steel_setup/</guid>
+      <description>pedal steeel</description>
+    </item>
+    <item>
+      <title>Static extraction of Docker image contents</title>
+      <link>//localhost:1313/post/docker_extraction/</link>
+      <pubDate>Wed, 24 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/post/docker_extraction/</guid>
+      <description>If a dockerfile is built in a container and no one is around to see it, does it make a sound?</description>
+    </item>
     <item>
       <title>About</title>
       <link>//localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/about/</guid>
-      <description>I&amp;rsquo;ve been a Software Engineer at Microsoft since 2022. I develop internal tools and infrastructure for developers in Windows and Azure. Developers, developers, developers!&#xA;My past experience includes:&#xA;Full-stack web development @ Reprise Platform engineering @ Cogito Test automation @ Carbonite Languages that I love to use:&#xA;Rust TypeScript C# Ummm&amp;hellip;</description>
+      <description>I&amp;rsquo;m a firm believer in the Internet&amp;rsquo;s power to serve as a repository of information and expertise, and for various reasons I believe that text is the ideal medium to capture, convey, and archive knowledge effectively.&#xA;Basically, I write here because I love sharing my learnings with others. Information should be accessible to everyone. Access to free, high-quality educational content in computing enables individuals from all backgrounds to excel in engineering and related fields.</description>
     </item>
   </channel>
 </rss>

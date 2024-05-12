@@ -1,6 +1,6 @@
 baseURL = '/'
 title = 'Gibby Free'
-theme = "risotto"
+theme = ["hugo-notice", "risotto"]
 enableEmoji = true
 languageCode = "en"
 DefaultContentLanguage = "en"
@@ -18,7 +18,7 @@ palette = "harmonic16-dark"
 # Sidebar: about/bio
 [params.about]
 title = "Gibby Free"
-description = "Software Engineer."
+description = "software engineer + distracted driver on information superhighway"
 # unicode/emoji logo:
 logo = "https://em-content.zobj.net/source/microsoft/319/dotted-line-face_1fae5.png"
 # or use an image:
@@ -76,6 +76,11 @@ unsafe = true
     startLevel = 2
     endLevel   = 3
     ordered    = true
+  
+  [markup.highlight]
+    codeFences = true
+    noClasses = false
+    style = 'tokyonight-night'
 
 [privacy]
 
