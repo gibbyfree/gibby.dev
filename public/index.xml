@@ -6,21 +6,21 @@
     <description>Recent content on Gibby Free</description>
     <generator>Hugo 0.125.1</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 04 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Learning Pedal Steel: Equipment and Setup</title>
-      <link>//localhost:1313/post/pedal_steel_setup/</link>
-      <pubDate>Sat, 04 May 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/post/pedal_steel_setup/</guid>
-      <description>pedal steeel</description>
-    </item>
     <item>
       <title>Static extraction of Docker image contents</title>
       <link>//localhost:1313/post/docker_extraction/</link>
-      <pubDate>Wed, 24 Apr 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/post/docker_extraction/</guid>
       <description>If a dockerfile is built in a container and no one is around to see it, does it make a sound?</description>
+    </item>
+    <item>
+      <title>[Pedal Steel] What&#39;s pedal steel guitar?</title>
+      <link>//localhost:1313/post/pedal_steel_setup/</link>
+      <pubDate>Sat, 04 May 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/post/pedal_steel_setup/</guid>
+      <description>An introduction to</description>
     </item>
     <item>
       <title>About</title>

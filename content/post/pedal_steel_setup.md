@@ -1,6 +1,6 @@
 +++
-title = 'Learning Pedal Steel: Equipment and Setup'
-summary = 'pedal steeel'
+title = "[Pedal Steel] What's pedal steel guitar?"
+summary = 'An introduction to '
 description = 'equipment'
 date = '2024-05-04'
 +++

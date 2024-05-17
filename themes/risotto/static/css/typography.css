@@ -143,9 +143,9 @@ pre,
 code, 
 kbd,
 samp {
-    background: var(--inner-bg) !important;
+    background: #282c34;
     font-family: var(--font-monospace);
-    color: var(--off-fg);
+    color: #abb2bf;
 }
 
 pre {

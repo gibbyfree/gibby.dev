@@ -8,7 +8,8 @@
       "header"
       "body"
       "aside"
-      "footer";
+      "footer"
+      "comments";
     grid-template-columns: minmax(0, 1fr); /* https://css-tricks.com/preventing-a-grid-blowout/ */
     grid-row-gap: 2rem;
 }
@@ -18,8 +19,9 @@
         grid-template-areas:
           "header  header"
           "body    aside"
+          "comments  aside"
           "footer  footer";
-        grid-template-columns: minmax(0, 1fr) 15rem;
+        grid-template-columns: minmax(0, 1.2fr) 14rem;
         grid-column-gap: 2rem;
     }
 }
@@ -59,4 +61,8 @@
 /* Footer */
 .page__footer {
     grid-area: footer;
+}
+
+.page__comments {
+    grid-area: comments;
 }
