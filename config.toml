@@ -1,6 +1,6 @@
 baseURL = '/'
 title = 'Gibby Free'
-theme = ["hugo-notice", "risotto"]
+theme = ["hugo-notice", "risotto", "hugo-shortcode-roneo-collection"]
 enableEmoji = true
 languageCode = "en"
 DefaultContentLanguage = "en"

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>Static extraction of Docker image contents &ndash; Gibby Free</title>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>Static extraction of Docker image artifacts &ndash; Gibby Free</title>
 <meta name="description" content="software engineer &#43; distracted driver on information superhighway">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +47,7 @@
 
         <section class="page__body">
     <header class="content__header">
-        <h1>Static extraction of Docker image contents</h1>
+        <h1>Static extraction of Docker image artifacts</h1>
     </header>
     <div class="content__body">
         <p>Recently, I&rsquo;ve been grappling with Docker containers. When I build a dockerfile via <code>docker build</code>, my host machine has limited visibility into the containerized build process.</p>
@@ -180,7 +180,7 @@
 
         </span>Info</p><p>A Dockerfile contains a sequence of build instructions executed within an isolated (containerized) environment. These instructions generate a Docker image, which serve as a blueprint for container creation.</p>
 <p>When an image is executed, Docker creates a container based on the image, effectively reproducing the environment defined in the Dockerfile.</p>
-<p>Each instruction in a Dockerfile corresponds to an <em>image layer</em>. A given layer contains the delta between the current layer and the previous one, usually representing a change in the underlying container&rsquo;s filesystem or configuration.</p></div>
+<p>Each instruction in a Dockerfile corresponds to an <em>image layer</em>. A given layer contains the delta between the current layer and the previous one, usually representing a change in the underlying container&rsquo;s file system or configuration.</p></div>
 
 <h1 id="setting-up-a-docker-image">Setting up a Docker image</h1>
 <p>Let&rsquo;s start by building a Docker image. Here&rsquo;s my motivating example:</p>
@@ -250,7 +250,7 @@
 </span></span></code></pre></div><p>When I run this script, I encounter this error for a few of the layers:
 <code>tar: This does not look like a tar archive</code> but the script continues on and <code>trace.log</code> is eventually located. Yay!</p>
 <p>Although this approach works for this simple case, there are some drawbacks.</p>
-<p>My image is based on a lightweight <code>alpine</code> image, but if I were using a beefier <code>ubuntu</code> image then this script might take a very long time to execute. This is because the base image itself is also contained within <code>blobs/sha256</code>, so locating <code>trace.log</code> involves extracting layers that contain the image base&rsquo;s filesystem.</p>
+<p>My image is based on a lightweight <code>alpine</code> image, but if I were using a beefier <code>ubuntu</code> image then this script might take a very long time to execute. This is because the base image itself is also contained within <code>blobs/sha256</code>, so locating <code>trace.log</code> involves extracting layers that contain the image base&rsquo;s file system.</p>
 <div class="notice note" >
     <p class="notice-title">
         <span class="icon-notice baseline">
@@ -262,144 +262,141 @@
 <p>It&rsquo;s possible to locate <code>strace.log</code> and extract a <em>single layer</em> of the image - i.e., no unnecessary extractions. To do this, we need to leverage some knowledge of the <a href="https://github.com/opencontainers/image-spec/blob/main/spec.md">OCI Image Specification</a> to decode the contents of <code>myimage.tar</code>.</p>
 <p>First, I&rsquo;ll reference the <a href="https://github.com/opencontainers/image-spec/blob/main/manifest.md">OCI image manifest spec</a> to understand more about <code>manifest.json</code>. My image&rsquo;s <code>manifest.json</code> looks like this:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Config&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/sha256/b88b8a4eae96dcec86268cf8c5b53dac6c263430682a7f1705e35eb34f5b4a5a&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;RepoTags&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;myimage:1.0&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">],</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Layers&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="p">],</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;LayerSources&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">103592960</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">138808320</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">4128256</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">7629824</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">672828928</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">4483072</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Config&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/sha256/b88b8a4eae96dcec86268cf8c5b53dac6c263430682a7f1705e35eb34f5b4a5a&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;RepoTags&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;myimage:1.0&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Layers&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;LayerSources&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">103592960</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">138808320</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">4128256</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">7629824</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">672828928</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">4483072</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
-</span></span></code></pre></div><p>Notice that there are far fewer layers listed under <code>Layers</code> than I saw in <code>myimage/blobs/sha256</code> earlier. The manifest has filtered out any &ldquo;empty&rdquo; layers - i.e., layers that apply environmental changes but don&rsquo;t modify the filesystem.</p>
+</span></span></code></pre></div><p>Notice that there are far fewer layers listed under <code>Layers</code> than I saw in <code>myimage/blobs/sha256</code> earlier. The manifest has filtered out any &ldquo;empty&rdquo; layers - i.e., layers that apply environmental changes but don&rsquo;t modify the file system.</p>
 <p>Furthermore, the &ldquo;layer&rdquo; listed as the manifest&rsquo;s <code>Config</code> isn&rsquo;t a layer at all. This <code>Config</code> value is a pointer to the image&rsquo;s <code>config.json</code>. (This <code>Config</code> path would have produced a <code>tar: This does not look like a tar archive</code> error like we saw with the naive approach.)</p>
 <p>I can read this image&rsquo;s <code>config.json</code> by running this command:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat myimage/blobs/sha256/b88b8a4eae96dcec86268cf8c5b53dac6c263430682
 </span></span><span class="line"><span class="cl">a7f1705e35eb34f5b4a5a &gt; config.json
 </span></span></code></pre></div><p>The  <code>config.json</code> looks like this:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;architecture&#34;</span><span class="p">:</span> <span class="s2">&#34;amd64&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;config&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Env&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;PATH=/usr/local/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;RUSTUP_HOME=/usr/local/rustup&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;CARGO_HOME=/usr/local/cargo&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;RUST_VERSION=1.76.0&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">],</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Cmd&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;/bin/sh&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">],</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;WorkingDir&#34;</span><span class="p">:</span> <span class="s2">&#34;/app&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:51.253198519Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;history&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-01-27T00:30:56.150825642Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;/bin/sh -c #(nop) ADD file:8729f9c0258836b640e9e789c7ab029cf4547e0596557d54dd4a4d7d8e4a785f in / &#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-01-27T00:30:56.304681072Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;/bin/sh -c #(nop)  CMD [\&#34;/bin/sh\&#34;]&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;empty_layer&#34;</span><span class="p">:</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-03-11T15:56:03Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;RUN /bin/sh -c apk add --no-cache         ca-certificates         gcc # buildkit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-03-11T15:56:03Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;ENV RUSTUP_HOME=/usr/local/rustup CARGO_HOME=/usr/local/cargo PATH=/usr/local/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_VERSION=1.76.0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;empty_layer&#34;</span><span class="p">:</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-03-11T15:56:03Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created_by&#34;</span><span class="p">:</span><span class="s2">&#34;RUN /bin/sh -c set -eux;     apkArch=\&#34;$(apk --print-arch)\&#34;;     case \&#34;$apkArch\&#34; in         x86_64) rustArch=&#39;x86_64-unknown-linux-musl&#39;; rustupSha256=&#39;b9d84cbba1ed29d11c534406a1839d64274d29805041e0e096d5293ae6390dd0&#39; ;;         aarch64) rustArch=&#39;aarch64-unknown-linux-musl&#39;; rustupSha256=&#39;841513f7599fcf89c71a62dea332337dfd4332216b60c17648d6effbeefe66a9&#39; ;;
-</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;architecture&#34;</span><span class="p">:</span> <span class="s2">&#34;amd64&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;config&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Env&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;PATH=/usr/local/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;RUSTUP_HOME=/usr/local/rustup&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;CARGO_HOME=/usr/local/cargo&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;RUST_VERSION=1.76.0&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Cmd&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;/bin/sh&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;WorkingDir&#34;</span><span class="p">:</span> <span class="s2">&#34;/app&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:51.253198519Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;history&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-01-27T00:30:56.150825642Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;/bin/sh -c #(nop) ADD file:8729f9c0258836b640e9e789c7ab029cf4547e0596557d54dd4a4d7d8e4a785f in / &#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-01-27T00:30:56.304681072Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;/bin/sh -c #(nop)  CMD [\&#34;/bin/sh\&#34;]&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;empty_layer&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-03-11T15:56:03Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;RUN /bin/sh -c apk add --no-cache         ca-certificates         gcc # buildkit&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-03-11T15:56:03Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;ENV RUSTUP_HOME=/usr/local/rustup CARGO_HOME=/usr/local/cargo PATH=/usr/local/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_VERSION=1.76.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;empty_layer&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-03-11T15:56:03Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span><span class="s2">&#34;RUN /bin/sh -c set -eux;     apkArch=\&#34;$(apk --print-arch)\&#34;;     case \&#34;$apkArch\&#34; in         x86_64) rustArch=&#39;x86_64-unknown-linux-musl&#39;; rustupSha256=&#39;b9d84cbba1ed29d11c534406a1839d64274d29805041e0e096d5293ae6390dd0&#39; ;;         aarch64) rustArch=&#39;aarch64-unknown-linux-musl&#39;; rustupSha256=&#39;841513f7599fcf89c71a62dea332337dfd4332216b60c17648d6effbeefe66a9&#39; ;;
 </span></span></span><span class="line"><span class="cl"><span class="s2">*) echo \u003e\u00262 \&#34;unsupported architecture: $apkArch\&#34;; exit 1 ;;     esac;     url=\&#34;https://static.rust-lang.org/rustup/archive/1.27.0/${rustArch}/rustup-init\&#34;;     wget \&#34;$url\&#34;;     echo \&#34;${rustupSha256} *rustup-init\&#34; | sha256sum -c -;     chmod +x rustup-init;     ./rustup-init -y --no-modify-path --profile minimal --default-toolchain $RUST_VERSION --default-host ${rustArch};     rm rustup-init;     chmod -R a+w $RUSTUP_HOME $CARGO_HOME;     rustup --version;     cargo --version;     rustc --version; # buildkit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:49.659900887Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;RUN /bin/sh -c apk update \u0026\u0026 apk add strace # buildkit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:49.823538715Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;COPY . . # buildkit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:49.852497547Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;WORKDIR /app&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:51.253198519Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;RUN /bin/sh -c strace -o trace.log cargo run # buildkit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;os&#34;</span><span class="p">:</span> <span class="s2">&#34;linux&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;rootfs&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;layers&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;diff_ids&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;sha256:aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;sha256:5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;sha256:cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;sha256:79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;sha256:1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;sha256:d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:49.659900887Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;RUN /bin/sh -c apk update \u0026\u0026 apk add strace # buildkit&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:49.823538715Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;COPY . . # buildkit&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:49.852497547Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;WORKDIR /app&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:51.253198519Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;RUN /bin/sh -c strace -o trace.log cargo run # buildkit&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;os&#34;</span><span class="p">:</span> <span class="s2">&#34;linux&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;rootfs&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;layers&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;diff_ids&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>The most important part of this file is the <code>history</code> array. Each entry in the <code>history</code> array corresponds to a layer, and each entry&rsquo;s <code>created_by</code> indicates which build command produced it. If a layer is <code>created_by</code> a command like <code>touch readme.txt</code>, then this layer .tar will contain <code>readme.txt</code>.</p>
 <p>In the above <code>history</code> array, the entry where <code>created_by</code> contains &ldquo;<code>-o trace.log</code>&rdquo; describes a layer that contains <code>trace.log</code>. This is the precise layer that I want to extract.</p>
@@ -537,6 +534,13 @@
     
 
     
+
+
+
+
+
+
+
 
             </div>
         </section>
