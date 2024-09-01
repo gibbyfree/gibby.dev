@@ -1,6 +1,0 @@
-[submodule "themes/hugo-notice"]
-	path = themes/hugo-notice
-	url = https://github.com/martignoni/hugo-notice.git
-[submodule "themes/hugo-shortcode-roneo-collection"]
-	path = themes/hugo-shortcode-roneo-collection
-	url = https://gitlab.com/Roneo/hugo-shortcode-roneo-collection.git
