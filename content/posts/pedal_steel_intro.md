@@ -1,7 +1,10 @@
 +++
-title = "[Pedal Steel] What's pedal steel guitar?"
-summary = 'An introduction to an enigmatic instrument'
-description = 'equipment'
+title = "What is pedal steel guitar?"
+summary = 'An introduction to an enigmatic instrument.'
+topics = ["pedal steel"]
+series = ["Pedal Steel"]
+series_order = 1
+tags = ['pedal steel']
 date = '2024-05-04'
 +++
 

@@ -1,2 +1,1 @@
-# Welcome!
-My name is Gibby [gɪb.i:] and I like to write. Here is what I've written recently:
+**gibby** /gɪb.i:/ *.n* **1** software engineer **2** information superhighway denizen
