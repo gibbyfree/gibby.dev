@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Static extraction of Docker image artifacts &middot; gibby.dev</title>
-  <meta name="title" content="Static extraction of Docker image artifacts &middot; gibby.dev" />
+  <title>Building a basic text editor in Rust &middot; gibby.dev</title>
+  <meta name="title" content="Building a basic text editor in Rust &middot; gibby.dev" />
   
   <meta name="description" content="If a dockerfile is built in a container and no one is around to see it, does it make a sound?" />
-  <meta name="keywords" content="devops, guide, intermediate, " />
+  <meta name="keywords" content="beginner, project, " />
   
   
-  <link rel="canonical" href="//localhost:1313/posts/docker_extraction/" />
+  <link rel="canonical" href="//localhost:1313/posts/gram/" />
   
   
   
@@ -64,22 +64,21 @@
   
   
   
-  <meta property="og:url" content="//localhost:1313/posts/docker_extraction/">
+  <meta property="og:url" content="//localhost:1313/posts/gram/">
   <meta property="og:site_name" content="gibby.dev">
-  <meta property="og:title" content="Static extraction of Docker image artifacts">
+  <meta property="og:title" content="Building a basic text editor in Rust">
   <meta property="og:description" content="If a dockerfile is built in a container and no one is around to see it, does it make a sound?">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
   <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-05-17T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-05-17T00:00:00+00:00">
-    <meta property="article:tag" content="Devops">
-    <meta property="article:tag" content="Guide">
-    <meta property="article:tag" content="Intermediate">
-    <meta property="og:image" content="//localhost:1313/posts/docker_extraction/featured.jpg">
+    <meta property="article:published_time" content="2024-12-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-28T00:00:00+00:00">
+    <meta property="article:tag" content="Beginner">
+    <meta property="article:tag" content="Project">
+    <meta property="og:image" content="//localhost:1313/posts/gram/featured.png">
 
   <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="//localhost:1313/posts/docker_extraction/featured.jpg"><meta name="twitter:title" content="Static extraction of Docker image artifacts">
+<meta name="twitter:image" content="//localhost:1313/posts/gram/featured.png"><meta name="twitter:title" content="Building a basic text editor in Rust">
 <meta name="twitter:description" content="If a dockerfile is built in a container and no one is around to see it, does it make a sound?">
 
   
@@ -88,26 +87,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Static extraction of Docker image artifacts",
-    "headline": "Static extraction of Docker image artifacts",
+    "name": "Building a basic text editor in Rust",
+    "headline": "Building a basic text editor in Rust",
     "description": "If a dockerfile is built in a container and no one is around to see it, does it make a sound?",
     "abstract": "If a dockerfile is built in a container and no one is around to see it, does it make a sound?",
     "inLanguage": "en",
-    "url" : "\/\/localhost:1313\/posts\/docker_extraction\/",
+    "url" : "\/\/localhost:1313\/posts\/gram\/",
     "author" : {
       "@type": "Person",
       "name": "Gibby Free"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-05-17T00:00:00\u002b00:00",
-    "datePublished": "2024-05-17T00:00:00\u002b00:00",
+    "dateCreated": "2024-12-28T00:00:00\u002b00:00",
+    "datePublished": "2024-12-28T00:00:00\u002b00:00",
     
-    "dateModified": "2024-05-17T00:00:00\u002b00:00",
+    "dateModified": "2024-12-28T00:00:00\u002b00:00",
     
-    "keywords": ["devops","guide","intermediate"],
+    "keywords": ["beginner","project"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1919"
+    "wordCount": "21"
   }]
   </script>
 
@@ -480,7 +479,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Static extraction of Docker image artifacts
+      Building a basic text editor in Rust
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -523,7 +522,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-05-17T00:00:00&#43;00:00">17 May 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1919 words</span>
+  <time datetime="2024-12-28T00:00:00&#43;00:00">28 December 2024</time><span class="px-2 text-primary-500">&middot;</span><span>21 words</span>
   
 
   
@@ -547,26 +546,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/devops/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/beginner/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Devops
+    Beginner
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/guide/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/project/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Guide
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/intermediate/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Intermediate
+    Project
   </span>
 </span>
   </span>
@@ -607,512 +598,6 @@
   If a dockerfile is built in a container and no one is around to see it, does it make a sound?
 </div>
 
-<p>Recently, I&rsquo;ve been grappling with Docker containers. When I build a dockerfile via <code>docker build</code>, my host machine has limited visibility into the containerized build process.</p>
-<p>This is by Docker design, but still presents a challenge if I want to monitor Docker builds at scale.</p>
-<p>I can move monitoring into the dockerfile itself, but then I run into another issue - how do I pull relevant artifacts <strong>out of</strong> the resulting Docker image? Bonus points if I can extract these artifacts <strong>without</strong> running Docker.</p>
-<style type="text/css">
-     
-    .notice {
-        --title-color: #fff;
-        --title-background-color: #6be;
-        --content-color: #444;
-        --content-background-color: #e7f2fa;
-    }
-
-    .notice.info {
-        --title-background-color: #fb7;
-        --content-background-color: #fec;
-    }
-
-    .notice.tip {
-        --title-background-color: #5a5;
-        --content-background-color: #efe;
-    }
-
-    .notice.warning {
-        --title-background-color: #c33;
-        --content-background-color: #fee;
-    }
-
-     
-    @media (prefers-color-scheme:dark) {
-        .notice {
-            --title-color: #fff;
-            --title-background-color: #069;
-            --content-color: #ddd;
-            --content-background-color: #023;
-        }
-
-        .notice.info {
-            --title-background-color: #a50;
-            --content-background-color: #420;
-        }
-
-        .notice.tip {
-            --title-background-color: #363;
-            --content-background-color: #121;
-        }
-
-        .notice.warning {
-            --title-background-color: #800;
-            --content-background-color: #400;
-        }
-    }
-
-    body.dark .notice {
-        --title-color: #fff;
-        --title-background-color: #069;
-        --content-color: #ddd;
-        --content-background-color: #023;
-    }
-
-    body.dark .notice.info {
-        --title-background-color: #a50;
-        --content-background-color: #420;
-    }
-
-    body.dark .notice.tip {
-        --title-background-color: #363;
-        --content-background-color: #121;
-    }
-
-    body.dark .notice.warning {
-        --title-background-color: #800;
-        --content-background-color: #400;
-    }
-
-     
-    .notice {
-        padding: 18px;
-        line-height: 24px;
-        margin-bottom: 24px;
-        border-radius: 4px;
-        color: var(--content-color);
-        background: var(--content-background-color);
-    }
-
-    .notice p:last-child {
-        margin-bottom: 0
-    }
-
-     
-    .notice-title {
-        margin: -18px -18px 12px;
-        padding: 4px 18px;
-        border-radius: 4px 4px 0 0;
-        font-weight: 700;
-        color: var(--title-color);
-        background: var(--title-background-color);
-    }
-
-     
-    .icon-notice {
-        display: inline-flex;
-        align-self: center;
-        margin-right: 8px;
-    }
-
-    .icon-notice img,
-    .icon-notice svg {
-        height: 1em;
-        width: 1em;
-        fill: currentColor;
-    }
-
-    .icon-notice img,
-    .icon-notice.baseline svg {
-        top: .125em;
-        position: relative;
-    }
-</style><div class="notice info" >
-    <p class="notice-title">
-        <span class="icon-notice baseline">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="92 59.5 300 300">
-  <path d="M292 303.25V272c0-3.516-2.734-6.25-6.25-6.25H267v-100c0-3.516-2.734-6.25-6.25-6.25h-62.5c-3.516 0-6.25 2.734-6.25 6.25V197c0 3.516 2.734 6.25 6.25 6.25H217v62.5h-18.75c-3.516 0-6.25 2.734-6.25 6.25v31.25c0 3.516 2.734 6.25 6.25 6.25h87.5c3.516 0 6.25-2.734 6.25-6.25Zm-25-175V97c0-3.516-2.734-6.25-6.25-6.25h-37.5c-3.516 0-6.25 2.734-6.25 6.25v31.25c0 3.516 2.734 6.25 6.25 6.25h37.5c3.516 0 6.25-2.734 6.25-6.25Zm125 81.25c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
-</svg>
-
-        </span>Info</p><p>A Dockerfile contains a sequence of build instructions executed within an isolated (containerized) environment. These instructions generate a Docker image, which serve as a blueprint for container creation.</p>
-<p>When an image is executed, Docker creates a container based on the image, effectively reproducing the environment defined in the Dockerfile.</p>
-<p>Each instruction in a Dockerfile corresponds to an <em>image layer</em>. A given layer contains the delta between the current layer and the previous one, usually representing a change in the underlying container&rsquo;s file system or configuration.</p></div>
-
-
-
-<h1 class="relative group">Setting up a Docker image 
-    <div id="setting-up-a-docker-image" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#setting-up-a-docker-image" aria-label="Anchor">#</a>
-    </span>        
-    
-</h1>
-<p>Let&rsquo;s start by building a Docker image. Here&rsquo;s my motivating example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> rust:1.76.0-alpine3.18</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apk update <span class="o">&amp;&amp;</span> apk add strace<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> strace -o trace.log cargo run<span class="err">
-</span></span></span></code></pre></div><p>This dockerfile copies an application into the Docker build context and traces the application&rsquo;s build with <code>strace</code>. <code>strace</code> will output its logfile to <code>trace.log</code>.</p>
-<p>Let&rsquo;s say I&rsquo;m tracing my build with <code>strace</code> because my Rust project is open-source and frequently integrates new open-source dependencies. To protect myself from supply chain attacks, I want to watch for suspicious network calls when my app is executed. The only way to collect this information from the Docker build is by running <code>strace</code> from within the container.</p>
-
-
-<h1 class="relative group">The problem 
-    <div id="the-problem" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#the-problem" aria-label="Anchor">#</a>
-    </span>        
-    
-</h1>
-<p>&hellip;But then how do we actually get our hands on <code>trace.log</code>? We could <code>docker run</code> the container and search its file system manually. But what if I&rsquo;m trying to integrate this check into my CI pipeline? Can this process be automated?</p>
-<p>This general problem applies to any scenario where your Dockerfile produces some artifact that you&rsquo;d like to extract from the resulting container.</p>
-<p>I&rsquo;m personally interested in this tracing example because a command like <code>strace -o trace.log docker build -f Dockerfile .</code> doesn&rsquo;t produce an interesting <code>trace.log</code>, due to the containerized build process that I mentioned earlier.</p>
-
-
-<h1 class="relative group">The solution 
-    <div id="the-solution" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#the-solution" aria-label="Anchor">#</a>
-    </span>        
-    
-</h1>
-<p>First, build and save the Docker image:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker build -f Dockerfile -t myimage:1.0 .
-</span></span><span class="line"><span class="cl">docker save -o myimage.tar myimage:1.0
-</span></span></code></pre></div><p>This <code>docker build</code> command builds the <code>Dockerfile</code> in the current directory (<code>.</code>) and tags the resulting image with <code>myimage:1.0</code>. <code>docker save</code> compresses the image to a <code>.tar</code> file - these <code>.tar</code> files are typically used to distribute, deploy, and/or backup Docker images. For my case, <code>docker save</code> will save the image in a more easily dissectible format.</p>
-<p>I&rsquo;ll extract the image tarball to a clean output directory:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir myimage
-</span></span><span class="line"><span class="cl">tar -xvf myimage.tar -C myimage
-</span></span></code></pre></div><p>Once extracted, here are the contents of <code>myimage</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">📁myimage
-</span></span><span class="line"><span class="cl"> └── 📁blobs
-</span></span><span class="line"><span class="cl">     └── 📁sha256
-</span></span><span class="line"><span class="cl">         └── 1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689
-</span></span><span class="line"><span class="cl">         └── 5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6
-</span></span><span class="line"><span class="cl">         └── 5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef
-</span></span><span class="line"><span class="cl">         └── 60be3224167df7d3927eef73eab4d9fbac87c2ad227db7302f62c715ee1aedcf
-</span></span><span class="line"><span class="cl">         └── 79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958
-</span></span><span class="line"><span class="cl">         └── 807a30def12c95b7638d81513f8ff014b82e0be9b02c3a2741a2de417afff353
-</span></span><span class="line"><span class="cl">         └── aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445
-</span></span><span class="line"><span class="cl">         └── b7da1d95051fa9e21f5c9934d4abb8686038e4d76775c857a39644fc3a7b8e81
-</span></span><span class="line"><span class="cl">         └── b88b8a4eae96dcec86268cf8c5b53dac6c263430682a7f1705e35eb34f5b4a5a
-</span></span><span class="line"><span class="cl">         └── cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0
-</span></span><span class="line"><span class="cl">         └── d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14
-</span></span><span class="line"><span class="cl">         └── dcc8140df88f28d0f2807d30bae4a76c2d597e1dda6f98274d37c5bfc0e9dd06
-</span></span><span class="line"><span class="cl">         └── dd4e2e76f6fc4791b1dd86cee52df664163fd809ed59bd9eb2181a4db94b65a2
-</span></span><span class="line"><span class="cl">         └── e78fc723f9dec6ad6c8cdac73bd8df9c477b3fe62741df0b2e6112d47b35c132
-</span></span><span class="line"><span class="cl">         └── f0a1565b3b4d7c42ab9ad5f613fecdf9c84a493e5c31ee7c155b45e74b5f17d4
-</span></span><span class="line"><span class="cl">         └── f53c508663464b69bf26e90bc5d916b171aa7c946ddc9c6b761aeaed2839996e
-</span></span><span class="line"><span class="cl"> └── index.json
-</span></span><span class="line"><span class="cl"> └── manifest.json
-</span></span><span class="line"><span class="cl"> └── oci-layout
-</span></span><span class="line"><span class="cl"> └── repositories
-</span></span></code></pre></div><p>Each of these (extensionless) hashed files under <code>blobs/sha256</code> represent a layer in the Docker image. I&rsquo;m guaranteed to find <code>trace.log</code> somewhere in this forest of layers.</p>
-
-
-<h2 class="relative group">Naive approach 
-    <div id="naive-approach" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#naive-approach" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p>Knowing this, I might try to find <code>strace.log</code> with brute force. I can just extract every layer under <code>blobs/sha256</code>, then recursively search all child directories for <code>strace.log</code>.</p>
-<p>I can try automating this procedure with a script like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="nv">BLOBS_DIR</span><span class="o">=</span><span class="s2">&#34;./myimage/blobs/sha256&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Attempt extraction on all extensionless files</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> file in <span class="s2">&#34;</span><span class="nv">$BLOBS_DIR</span><span class="s2">&#34;</span>/*<span class="p">;</span> <span class="k">do</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s2">&#34;Attempting extraction of </span><span class="nv">$file</span><span class="s2">...&#34;</span>
-</span></span><span class="line"><span class="cl">        tar -xf <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> -C <span class="s2">&#34;</span><span class="nv">$BLOBS_DIR</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
-</span></span><span class="line"><span class="cl"><span class="k">done</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Search for trace.log in the blobs directory</span>
-</span></span><span class="line"><span class="cl">find <span class="s2">&#34;</span><span class="nv">$BLOBS_DIR</span><span class="s2">&#34;</span> -type f -name <span class="s2">&#34;trace.log&#34;</span>
-</span></span></code></pre></div><p>When I run this script, I encounter this error for a few of the layers:
-<code>tar: This does not look like a tar archive</code> but the script continues on and <code>trace.log</code> is eventually located. Yay!</p>
-<p>Although this approach works for this simple case, there are some drawbacks.</p>
-<p>My image is based on a lightweight <code>alpine</code> image, but if I were using a beefier <code>ubuntu</code> image then this script might take a very long time to execute. This is because the base image itself is also contained within <code>blobs/sha256</code>, so locating <code>trace.log</code> involves extracting layers that contain the image base&rsquo;s file system.</p>
-<div class="notice note" >
-    <p class="notice-title">
-        <span class="icon-notice baseline">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 128 300 300">
-  <path d="M150 128c82.813 0 150 67.188 150 150 0 82.813-67.188 150-150 150C67.187 428 0 360.812 0 278c0-82.813 67.188-150 150-150Zm25 243.555v-37.11c0-3.515-2.734-6.445-6.055-6.445h-37.5c-3.515 0-6.445 2.93-6.445 6.445v37.11c0 3.515 2.93 6.445 6.445 6.445h37.5c3.32 0 6.055-2.93 6.055-6.445Zm-.39-67.188 3.515-121.289c0-1.367-.586-2.734-1.953-3.516-1.172-.976-2.93-1.562-4.688-1.562h-42.968c-1.758 0-3.516.586-4.688 1.563-1.367.78-1.953 2.148-1.953 3.515l3.32 121.29c0 2.734 2.93 4.882 6.64 4.882h36.134c3.515 0 6.445-2.148 6.64-4.883Z"/>
-</svg>
-
-        </span>Note</p><p>When experimenting with this approach in a CI environment, I wanted to cleanup <code>$BLOBS_DIR</code> to prevent the unpacked tarball from leaking into my build artifacts. I ran into ownership-related errors when trying to delete base image files form <code>$BLOBS_DIR</code>. This may have been an issue specific to my build system though.</p></div>
-
-
-
-<h2 class="relative group">Better approach 
-    <div id="better-approach" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#better-approach" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p>It&rsquo;s possible to locate <code>strace.log</code> and extract a <em>single layer</em> of the image - i.e., no unnecessary extractions. To do this, we need to leverage some knowledge of the <a href="https://github.com/opencontainers/image-spec/blob/main/spec.md" target="_blank">OCI Image Specification</a> to decode the contents of <code>myimage.tar</code>.</p>
-<p>First, I&rsquo;ll reference the <a href="https://github.com/opencontainers/image-spec/blob/main/manifest.md" target="_blank">OCI image manifest spec</a> to understand more about <code>manifest.json</code>. My image&rsquo;s <code>manifest.json</code> looks like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Config&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/sha256/b88b8a4eae96dcec86268cf8c5b53dac6c263430682a7f1705e35eb34f5b4a5a&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;RepoTags&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;myimage:1.0&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">],</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Layers&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;blobs/sha256/d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">],</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;LayerSources&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">103592960</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">138808320</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">4128256</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">7629824</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">672828928</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;sha256:d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;mediaType&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vnd.oci.image.layer.v1.tar&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">4483072</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256:d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">]</span>
-</span></span></code></pre></div><p>Notice that there are far fewer layers listed under <code>Layers</code> than I saw in <code>myimage/blobs/sha256</code> earlier. The manifest has filtered out any &ldquo;empty&rdquo; layers - i.e., layers that apply environmental changes but don&rsquo;t modify the file system.</p>
-<p>Furthermore, the &ldquo;layer&rdquo; listed as the manifest&rsquo;s <code>Config</code> isn&rsquo;t a layer at all. This <code>Config</code> value is a pointer to the image&rsquo;s <code>config.json</code>. (This <code>Config</code> path would have produced a <code>tar: This does not look like a tar archive</code> error like we saw with the naive approach.)</p>
-<p>I can read this image&rsquo;s <code>config.json</code> by running this command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat myimage/blobs/sha256/b88b8a4eae96dcec86268cf8c5b53dac6c263430682
-</span></span><span class="line"><span class="cl">a7f1705e35eb34f5b4a5a &gt; config.json
-</span></span></code></pre></div><p>The  <code>config.json</code> looks like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;architecture&#34;</span><span class="p">:</span> <span class="s2">&#34;amd64&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;config&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Env&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;PATH=/usr/local/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;RUSTUP_HOME=/usr/local/rustup&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;CARGO_HOME=/usr/local/cargo&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;RUST_VERSION=1.76.0&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">],</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Cmd&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;/bin/sh&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">],</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;WorkingDir&#34;</span><span class="p">:</span> <span class="s2">&#34;/app&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:51.253198519Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;history&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-01-27T00:30:56.150825642Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;/bin/sh -c #(nop) ADD file:8729f9c0258836b640e9e789c7ab029cf4547e0596557d54dd4a4d7d8e4a785f in / &#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-01-27T00:30:56.304681072Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;/bin/sh -c #(nop)  CMD [\&#34;/bin/sh\&#34;]&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;empty_layer&#34;</span><span class="p">:</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-03-11T15:56:03Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;RUN /bin/sh -c apk add --no-cache         ca-certificates         gcc # buildkit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-03-11T15:56:03Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;ENV RUSTUP_HOME=/usr/local/rustup CARGO_HOME=/usr/local/cargo PATH=/usr/local/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_VERSION=1.76.0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;empty_layer&#34;</span><span class="p">:</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-03-11T15:56:03Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span><span class="s2">&#34;RUN /bin/sh -c set -eux;     apkArch=\&#34;$(apk --print-arch)\&#34;;     case \&#34;$apkArch\&#34; in         x86_64) rustArch=&#39;x86_64-unknown-linux-musl&#39;; rustupSha256=&#39;b9d84cbba1ed29d11c534406a1839d64274d29805041e0e096d5293ae6390dd0&#39; ;;         aarch64) rustArch=&#39;aarch64-unknown-linux-musl&#39;; rustupSha256=&#39;841513f7599fcf89c71a62dea332337dfd4332216b60c17648d6effbeefe66a9&#39; ;;
-</span></span></span><span class="line"><span class="cl"><span class="s2">*) echo \u003e\u00262 \&#34;unsupported architecture: $apkArch\&#34;; exit 1 ;;     esac;     url=\&#34;https://static.rust-lang.org/rustup/archive/1.27.0/${rustArch}/rustup-init\&#34;;     wget \&#34;$url\&#34;;     echo \&#34;${rustupSha256} *rustup-init\&#34; | sha256sum -c -;     chmod +x rustup-init;     ./rustup-init -y --no-modify-path --profile minimal --default-toolchain $RUST_VERSION --default-host ${rustArch};     rm rustup-init;     chmod -R a+w $RUSTUP_HOME $CARGO_HOME;     rustup --version;     cargo --version;     rustc --version; # buildkit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:49.659900887Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;RUN /bin/sh -c apk update \u0026\u0026 apk add strace # buildkit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:49.823538715Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;COPY . . # buildkit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:49.852497547Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;WORKDIR /app&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-13T17:06:51.253198519Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;RUN /bin/sh -c strace -o trace.log cargo run # buildkit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;comment&#34;</span><span class="p">:</span> <span class="s2">&#34;buildkit.dockerfile.v0&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;os&#34;</span><span class="p">:</span> <span class="s2">&#34;linux&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;rootfs&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;layers&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;diff_ids&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:aedc3bda2944bb9bcb6c3d475bee8b460db9a9b0f3e0b33a6ed2fd1ae0f1d445&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:5500516daa5d159d01f04ea168438de6cbc4a86197cf3b462b7f00e1054f1fe6&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:cb35dc109a5e6c8f76a05a26ae1178fc7489ddf690110600dc0b60ea05d371c0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:79643e31b5e64ee2c97c3fada467f944d97691b15beeabd27d60bb24dcf62958&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:1fc818d7122c2955f10c33a86a84be0585dce8264f07ff20d26d6e4d77072689&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sha256:d708bd3ae8e28161aa0fa6207912621fd352c1126593347982cde1a2e609ac14&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">]</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>The most important part of this file is the <code>history</code> array. Each entry in the <code>history</code> array corresponds to a layer, and each entry&rsquo;s <code>created_by</code> indicates which build command produced it. If a layer is <code>created_by</code> a command like <code>touch readme.txt</code>, then this layer .tar will contain <code>readme.txt</code>.</p>
-<p>In the above <code>history</code> array, the entry where <code>created_by</code> contains &ldquo;<code>-o trace.log</code>&rdquo; describes a layer that contains <code>trace.log</code>. This is the precise layer that I want to extract.</p>
-<p>To map each layer to its sha256 hash, filter out all layers where <code>empty_layer=true</code>. The remaining entries in <code>history</code> correspond to each hash listed in <code>rootfs.diff_ids</code> - meaning <code>history[n]</code> corresponds to <code>rootfs.diff_ids[n]</code>.</p>
-<p>Once I have the layer&rsquo;s hash, I can proceed with extracting the layer and pulling out <code>trace.log</code>.</p>
-<p>I wrote a script which automates this entire process, given <code>myimage.tar</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Extract myimage.tar to a clean directory</span>
-</span></span><span class="line"><span class="cl">mkdir myimage
-</span></span><span class="line"><span class="cl">tar -xvf myimage.tar -C myimage
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Write config.json</span>
-</span></span><span class="line"><span class="cl"><span class="nv">configPath</span><span class="o">=</span><span class="k">$(</span>jq -r <span class="s1">&#39;.[0].Config&#39;</span> myimage/manifest.json<span class="k">)</span>
-</span></span><span class="line"><span class="cl">cat myimage/<span class="nv">$configPath</span> &gt; myimage/config.json
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Read myimage/config.json and filter out empty_layer history entries</span>
-</span></span><span class="line"><span class="cl"><span class="nv">history</span><span class="o">=</span><span class="k">$(</span>jq -c <span class="s1">&#39;.history[] | select(.empty_layer != true)&#39;</span> myimage/config.json<span class="k">)</span>
-</span></span><span class="line"><span class="cl"><span class="nv">historyArray</span><span class="o">=(</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$history</span> <span class="p">|</span> jq -r <span class="s1">&#39;.[]&#39;</span><span class="k">)</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Find the index of the history entry where created_by contains &#39;-o strace.log&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="nv">index</span><span class="o">=</span>-1
-</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="s2">&#34;</span><span class="si">${</span><span class="p">!historyArray[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">historyArray</span><span class="p">[i]</span><span class="si">}</span> <span class="o">==</span> *<span class="s2">&#34;-o strace.log&#34;</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">index</span><span class="o">=</span><span class="nv">$i</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">break</span>
-</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
-</span></span><span class="line"><span class="cl"><span class="k">done</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Read rootfs.diff_ids and get the entry at the same index</span>
-</span></span><span class="line"><span class="cl"><span class="nv">rootfs</span><span class="o">=</span><span class="k">$(</span>jq -r <span class="s2">&#34;.rootfs.diff_ids[</span><span class="nv">$index</span><span class="s2">]&#34;</span> myimage/config.json<span class="k">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Strip the sha256: prefix</span>
-</span></span><span class="line"><span class="cl"><span class="nv">rootfs</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$rootfs</span> <span class="p">|</span> sed <span class="s1">&#39;s/sha256://&#39;</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Extract the trace.log&#39;s layer into a clean directory</span>
-</span></span><span class="line"><span class="cl">mkdir <span class="nv">$rootfs</span>
-</span></span><span class="line"><span class="cl">tar -xvf myimage/blobs/sha256/<span class="nv">$rootfs</span> -C <span class="nv">$rootfs</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Find trace.log in myimage/$rootfs and move it into this script&#39;s directory</span>
-</span></span><span class="line"><span class="cl"><span class="nv">script_dir</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl">find <span class="nv">$rootfs</span> -name <span class="s1">&#39;trace.log&#39;</span> -exec mv <span class="o">{}</span> <span class="s2">&#34;</span><span class="nv">$script_dir</span><span class="s2">&#34;</span> <span class="se">\;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Cleanup</span>
-</span></span><span class="line"><span class="cl">rm -rf myimage
-</span></span><span class="line"><span class="cl">rm -rf <span class="nv">$rootfs</span>
-</span></span></code></pre></div><p>This script is dependent on <a href="https://jqlang.github.io/jq/" target="_blank"><code>jq</code></a>, which is a command-line JSON parser.</p>
-
-
-<h2 class="relative group">Post-script: ye olde Docker image spec 
-    <div id="post-script-ye-olde-docker-image-spec" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#post-script-ye-olde-docker-image-spec" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p>Prior to adopting the OCI specification with Docker 1.11, Docker had <a href="https://github.com/moby/docker-image-spec/blob/main/spec.md" target="_blank">its own image spec</a>.</p>
-<p>My original solution was written for the older Docker image spec, since I was working with build systems that used an older version of Docker. If you follow these steps with Docker &lt;1.11, these <code>.json</code> files will be shaped a little differently. The same approach still works though.</p>
-<p>Here&rsquo;s are the key differences that I noticed with the Docker image spec:</p>
-<ul>
-<li>Hashes correspond to directories instead of files, and each hash directory contains a <code>layer.tar</code>. Hash directories are at the top-level of the image.</li>
-<li><code>config.json</code> is a <code>{sha256hash}.json</code> file in the top-level of the tarball.</li>
-<li>Layer hashes can&rsquo;t be translated using the <code>rootfs.diff_ids</code>. Once empty layers are filtered out, <code>history[n]</code> corresponds to <code>manifest.json</code>&rsquo;s <code>layers[n]</code>.</li>
-</ul>
-<p>I&rsquo;ve adopted the script above for Docker image specs here:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Extract myimage.tar to a clean directory</span>
-</span></span><span class="line"><span class="cl">mkdir myimage
-</span></span><span class="line"><span class="cl">tar -xvf nc-janitor.tar -C myimage
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Write config.json</span>
-</span></span><span class="line"><span class="cl"><span class="nv">configPath</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$manifestJson</span> <span class="p">|</span> jq -r <span class="s1">&#39;.[0].Config&#39;</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl"><span class="nv">configJson</span><span class="o">=</span><span class="k">$(</span>jq <span class="s1">&#39;.&#39;</span> <span class="nv">$tempDir</span>/<span class="nv">$config</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Read myimage/config.json and filter out empty_layer history entries</span>
-</span></span><span class="line"><span class="cl"><span class="nv">history</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$configJson</span> <span class="p">|</span> jq -c <span class="s1">&#39;.history[] | select(.empty_layer != true)&#39;</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Find the index of the history entry with -o strace.log</span>
-</span></span><span class="line"><span class="cl"><span class="nv">historyArray</span><span class="o">=(</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$history</span> <span class="p">|</span> jq -r <span class="s1">&#39;.[]&#39;</span><span class="k">)</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="nv">index</span><span class="o">=</span>-1
-</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="s2">&#34;</span><span class="si">${</span><span class="p">!historyArray[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">historyArray</span><span class="p">[i]</span><span class="si">}</span> <span class="o">==</span> *<span class="s2">&#34;codeql database create&#34;</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">index</span><span class="o">=</span><span class="nv">$i</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">break</span>
-</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
-</span></span><span class="line"><span class="cl"><span class="k">done</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Find the layer tarball that corresponds to the index we found above</span>
-</span></span><span class="line"><span class="cl"><span class="nv">layer</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$manifestJson</span> <span class="p">|</span> jq -r <span class="s2">&#34;.layers[</span><span class="nv">$index</span><span class="s2">].digest&#34;</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Extract the artifact&#39;s layer into a clean directory</span>
-</span></span><span class="line"><span class="cl">mkdir output
-</span></span><span class="line"><span class="cl">tar -xvf myimage/<span class="nv">$layer</span>/layer.tar -C <span class="nv">$tempDir</span>/<span class="nv">$layer</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Find trace.log in myimage/$rootfs and move it to the script&#39;s directory</span>
-</span></span><span class="line"><span class="cl"><span class="nv">script_dir</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl">find <span class="nv">$rootfs</span> -name <span class="s1">&#39;trace.log&#39;</span> -exec mv <span class="o">{}</span> <span class="s2">&#34;</span><span class="nv">$script_dir</span><span class="s2">&#34;</span> <span class="se">\;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Cleanup</span>
-</span></span><span class="line"><span class="cl">rm -rf myimage
-</span></span><span class="line"><span class="cl">rm -rf output
-</span></span></code></pre></div><p>(I&rsquo;m not totally sure about the stability of Docker&rsquo;s image spec, but this script works for me on image tarballs saved with Docker v1.2.)</p>
 
           
           
@@ -1179,8 +664,8 @@
           
         
       <script>
-        var oid = "views_posts\/docker_extraction\/index.md"
-        var oid_likes = "likes_posts\/docker_extraction\/index.md"
+        var oid = "views_posts\/gram\/index.md"
+        var oid_likes = "likes_posts\/gram\/index.md"
       </script>
       
       
@@ -1200,30 +685,30 @@
       <div class="flex justify-between pt-3">
         <span>
           
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/gram/">
+            <a class="flex group mr-3" href="/posts/docker_extraction/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Building a basic text editor in Rust</span
+                  >Static extraction of Docker image artifacts</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-12-28T00:00:00&#43;00:00">28 December 2024</time>
+                    <time datetime="2024-05-17T00:00:00&#43;00:00">17 May 2024</time>
                   
                 </span>
               </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
             </a>
+          
+        </span>
+        <span>
           
         </span>
       </div>

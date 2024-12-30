@@ -1,1 +1,1 @@
-**gibby** /gɪb.i:/ *.n* **1** software engineer **2** information superhighway denizen
+**gibby** /gɪb.i:/ *.n* **1** computer person **2** hobby haver

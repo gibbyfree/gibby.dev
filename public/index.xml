@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Gibby Free</copyright>
-    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Static extraction of Docker image artifacts</title>
       <link>//localhost:1313/posts/docker_extraction/</link>
@@ -24,7 +24,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/about/</guid>
-      <description>I&amp;rsquo;m a firm believer in the Internet&amp;rsquo;s power to serve as a repository of information and expertise.</description>
+      <description>I’m a software engineer at Microsoft and a master’s student in computer science.</description>
       
     </item>
     
