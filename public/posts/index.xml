@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Gibby Free</title>
+    <title>Posts on gibby.dev</title>
     <link>//localhost:1313/posts/</link>
-    <description>Recent content in Posts on Gibby Free</description>
+    <description>Recent content in Posts on gibby.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Gibby Free</copyright>
@@ -16,16 +16,6 @@
       <guid>//localhost:1313/posts/docker_extraction/</guid>
       <description>If a dockerfile is built in a container and no one is around to see it, does it make a sound?</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/docker_extraction/featured.jpg" />
-    </item>
-    
-    <item>
-      <title>What is pedal steel guitar?</title>
-      <link>//localhost:1313/posts/pedal_steel_intro/</link>
-      <pubDate>Sat, 04 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/posts/pedal_steel_intro/</guid>
-      <description>An introduction to an enigmatic instrument.</description>
-      
     </item>
     
   </channel>

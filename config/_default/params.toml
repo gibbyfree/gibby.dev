@@ -8,9 +8,10 @@ disableImageOptimization = false
 disableTextInHeader = false
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v8.next.forgejo.org"
+logo = "green-logo.svg"
 
 [header]
-layout = "basic"
+layout = "fixed"
 
 [footer]
 showMenu = true
@@ -20,7 +21,7 @@ showAppearanceSwitcher = true
 showScrollToTop = true
 
 [homepage]
-layout = "hero"
+layout = "background"
 showRecent = true
 showRecentItems = 5
 showMoreLink = false
@@ -28,7 +29,7 @@ showMoreLinkDest = "/posts/"
 cardView = false
 cardViewScreenWidth = false
 layoutBackgroundBlur = false
-homepageImage = "https://gibbystatic.blob.core.windows.net/static/concrete.jpg"
+homepageImage = "https://gibbystatic.blob.core.windows.net/static/more-stars.jpg"
 
 [article]
 showDate = true

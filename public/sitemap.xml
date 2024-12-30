@@ -21,12 +21,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/pedal_steel_intro/</loc>
-    <lastmod>2024-05-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>//localhost:1313/about/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

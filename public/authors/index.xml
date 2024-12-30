@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Authors on Gibby Free</title>
+    <title>Authors on gibby.dev</title>
     <link>//localhost:1313/authors/</link>
-    <description>Recent content in Authors on Gibby Free</description>
+    <description>Recent content in Authors on gibby.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Gibby Free</copyright>

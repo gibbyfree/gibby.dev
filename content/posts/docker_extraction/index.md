@@ -3,8 +3,13 @@ title = 'Static extraction of Docker image artifacts'
 summary = 'If a dockerfile is built in a container and no one is around to see it, does it make a sound?'
 description = 'If a dockerfile is built in a container and no one is around to see it, does it make a sound?'
 date = '2024-05-17'
-tags = ['devops', 'guide']
+tags = ['devops', 'guide', 'intermediate']
+showReadingTime = false
 +++
+{{< lead >}}
+If a dockerfile is built in a container and no one is around to see it, does it make a sound?
+{{< /lead >}}
+
 Recently, I've been grappling with Docker containers. When I build a dockerfile via `docker build`, my host machine has limited visibility into the containerized build process. 
 
 This is by Docker design, but still presents a challenge if I want to monitor Docker builds at scale.
