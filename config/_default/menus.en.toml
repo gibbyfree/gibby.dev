@@ -1,0 +1,20 @@
+[[main]]
+name = "About"
+pageRef = "/about"
+identifier = "4dn1PWNJpj"
+weight = 2
+
+[[main]]
+name = "Posts"
+pageRef = "/posts"
+identifier = "Miqj69oBmo"
+weight = 3
+
+[[main]]
+identifier = "github"
+pre = "github"
+pageRef = "https://github.com/gibbyfree"
+weight = 4
+
+[[footer]]
+none = "none"

@@ -1,0 +1,16 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "gibby.dev"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "2 January 2006"
+
+[params.author]
+name = "Gibby Free"
+image = "https://gibbystatic.blob.core.windows.net/static/ufo-green.png"
+bio = "Mostly normal person."

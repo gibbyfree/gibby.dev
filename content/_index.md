@@ -1,0 +1,1 @@
+**gibby** /gɪb.i:/ *.n* **1** computer person **2** hobby haver
