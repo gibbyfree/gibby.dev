@@ -6,6 +6,7 @@ date = '2024-05-17'
 tags = ['devops', 'guide', 'intermediate']
 showReadingTime = false
 showComments = true
+showTableOfContents = true
 +++
 {{< lead >}}
 If a dockerfile is built in a container and no one is around to see it, does it make a sound?
