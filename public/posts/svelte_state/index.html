@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>About &middot; gibby.dev</title>
-  <meta name="title" content="About &middot; gibby.dev" />
+  <title>Global state in Svelte 5 &middot; gibby.dev</title>
+  <meta name="title" content="Global state in Svelte 5 &middot; gibby.dev" />
+  
+  <meta name="description" content="Svelte state for dummies (it&#39;s me, I&#39;m dummies)" />
+  <meta name="keywords" content="Svelte, tip, beginner, " />
   
   
-  
-  
-  
-  <link rel="canonical" href="//localhost:1313/about/" />
+  <link rel="canonical" href="//localhost:1313/posts/svelte_state/" />
   
   
   
@@ -64,43 +64,48 @@
   
   
   
-  <meta property="og:url" content="//localhost:1313/about/">
+  <meta property="og:url" content="//localhost:1313/posts/svelte_state/">
   <meta property="og:site_name" content="gibby.dev">
-  <meta property="og:title" content="About">
-  <meta property="og:description" content="I’m a software engineer at Microsoft and a master’s student in computer science.">
+  <meta property="og:title" content="Global state in Svelte 5">
+  <meta property="og:description" content="Svelte state for dummies (it&#39;s me, I&#39;m dummies)">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
-  <meta property="article:section" content="">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Svelte">
+    <meta property="article:tag" content="Tip">
+    <meta property="article:tag" content="Beginner">
 
-  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="About">
-<meta name="twitter:description" content="I’m a software engineer at Microsoft and a master’s student in computer science.">
+  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Global state in Svelte 5">
+<meta name="twitter:description" content="Svelte state for dummies (it&#39;s me, I&#39;m dummies)">
 
   
   <script type="application/ld+json">
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "",
-    "name": "About",
-    "headline": "About",
-    
-    "abstract": "I’m a software engineer at Microsoft and a master’s student in computer science.",
+    "articleSection": "Posts",
+    "name": "Global state in Svelte 5",
+    "headline": "Global state in Svelte 5",
+    "description": "Svelte state for dummies (it\u0027s me, I\u0027m dummies)",
+    "abstract": "Svelte state for dummies (it\u0026rsquo;s me, I\u0026rsquo;m dummies)",
     "inLanguage": "en",
-    "url" : "\/\/localhost:1313\/about\/",
+    "url" : "\/\/localhost:1313\/posts\/svelte_state\/",
     "author" : {
       "@type": "Person",
       "name": "Gibby Free"
     },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-01-01T00:00:00\u002b00:00",
+    "datePublished": "2025-01-01T00:00:00\u002b00:00",
     
+    "dateModified": "2025-01-01T00:00:00\u002b00:00",
     
-    
-    
-    
-    
-    
+    "keywords": ["Svelte","tip","beginner"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "86"
+    "wordCount": "148"
   }]
   </script>
 
@@ -465,44 +470,316 @@
   <div class="relative flex flex-col grow">
     <main id="main-content" class="grow">
       
-  <article class="max-w-full">
-    <header>
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Global state in Svelte 5
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
-      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        About
-      </h1>
-    </header>
-    <section class="max-w-full mt-6 prose dark:prose-invert">
-      <p>I’m a software engineer at Microsoft and a master’s student in computer science.</p>
-<p>My preferred programming languages include Rust, TypeScript, C#&hellip; umm&hellip;</p>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://gibbystatic.blob.core.windows.net/static/yml.png" alt="Is YML an instrument?" />
-    
-  </figure>
-</p>
 
 
-<h1 class="relative group">Why blog? 
-    <div id="why-blog" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#why-blog" aria-label="Anchor">#</a>
-    </span>        
-    
-</h1>
-<p>I&rsquo;m a firm believer in the Internet&rsquo;s power to serve as a repository of information and expertise.
-I write here because I love to share my learnings with others, and because I believe that information should be accessible to everyone.
-I grew up with limited resources, and I wouldn&rsquo;t be the person I am today without access to content like this.</p>
 
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-01-01T00:00:00&#43;00:00">1 January 2025</time><span class="px-2 text-primary-500">&middot;</span><span>148 words</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/svelte/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Svelte
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/tip/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Tip
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/beginner/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Beginner
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>I&rsquo;ve been having a blast with <a href="https://svelte.dev/blog/svelte-5-is-alive" target="_blank">Svelte 5</a> but it took me a sec to figure out how to get global state that &ldquo;just works&rdquo; with runes.
+So far, this is my favorite pattern:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// src/lib/state/user.svelte.ts
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">emptyUser</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">username</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">email</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">profile</span><span class="o">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">createdAt</span>: <span class="kt">new</span> <span class="nb">Date</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">updatedAt</span>: <span class="kt">new</span> <span class="nb">Date</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">loggedInUser</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getSession</span><span class="p">()</span> <span class="o">??</span> <span class="nx">emptyUser</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">cUser</span> <span class="o">=</span> <span class="nx">user</span><span class="p">(</span><span class="nx">loggedInUser</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">user</span><span class="p">(</span><span class="nx">init</span>: <span class="kt">User</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// fns modifying User
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">let</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">$state</span><span class="p">(</span><span class="nx">init</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">get</span> <span class="kr">get</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">{</span> <span class="p">...</span><span class="nx">user</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">set</span> <span class="kr">set</span><span class="p">(</span><span class="nx">newUser</span>: <span class="kt">User</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">user</span> <span class="o">=</span> <span class="nx">newUser</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">set</span> <span class="nx">profile</span><span class="p">(</span><span class="nx">profile</span>: <span class="kt">Profile</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">user</span><span class="p">.</span><span class="nx">profile</span> <span class="o">=</span> <span class="nx">profile</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">get</span> <span class="nx">username() {</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">get</span> <span class="nx">email() {</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">get</span> <span class="nx">profile() {</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">user</span><span class="p">.</span><span class="nx">profile</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Access the state like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-svelte" data-lang="svelte"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">cUser</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;$lib/state/user.svelte&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">user</span><span class="o">:</span> <span class="nx">User</span> <span class="o">|</span> <span class="nx">Record</span><span class="o">&lt;</span><span class="nx">string</span><span class="p">,</span> <span class="nx">never</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">cUser</span><span class="p">.</span><span class="nx">get</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;h3&#34;</span><span class="p">&gt;</span>Welcome back, <span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span>!<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span></span></code></pre></div>
+          
+          
+          
+        </div>
+        
+        
+
+          
+            
+            
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="Gibby Free" src="/ufo-green_4679208373773160924_hu0a7d74b21be3e82db2bbd6b0e003b0c8_165246_192x192_fill_box_center_3.png" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      Gibby Free
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">Mostly normal person.</div>
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+          
+
+          
+
+          
+          <div class="mb-10"></div>
+          
+
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_posts\/svelte_state\/index.md"
+        var oid_likes = "likes_posts\/svelte_state\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+      
+  
     </section>
-    <footer class="pt-8">
-      
+  <footer class="pt-8 max-w-prose print:hidden">
 
-    </footer>
-  </article>
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/gram/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Building a basic text editor in Rust</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-12-28T00:00:00&#43;00:00">28 December 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+    
+    <div class="pt-3">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="pt-3">
+        <script src="https://utteranc.es/client.js" repo="gibbyfree/gibby.dev" issue-term="title" label="utterance"
+    theme="gruvbox-dark" crossorigin="anonymous" async>
+    </script>
+      </div>
+    </div>
+    
+    
+  </footer>
+</article>
 
       <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
   <a href="#the-top"
