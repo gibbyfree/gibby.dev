@@ -278,3 +278,4 @@ cmake --build .
 And that's about it! 
 
 CMake has a lot of features and can be used to generate highly complex build systems, but as a C/C++ hobbyist, this is basically all that I've ever needed from CMake. 
+I usually avoid using heavyweight IDEs, and CMake has made C development a lot more accessible to me.
