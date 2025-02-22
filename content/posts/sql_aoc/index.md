@@ -120,6 +120,12 @@ For the example puzzle input, this correctly returns:
 (1 row)
 ```
 
+{{< notice note >}}
+I set up my Postgres database using: `createdb aoc`
+
+Then I ran my script using: `psql -q -U postgres -f aoc01.sql -v filepath='/data' -v filename='aoc01_input.csv' aoc`
+{{< /notice >}}
+
 I was curious about performance, so I ran with `/timing` on my actual puzzle input and found that my SQL script runs in `2.3ms`. 
 Not as bad as I expected, but my Python implementation is still much faster at `0.9ms`.
 
@@ -172,7 +178,7 @@ from unsplit;
 -- you can do that with a WHERE clause here.
 ```
 
-We use [`substring`](https://www.postgresql.org/docs/9.1/functions-string.html) to split each line into characters and we use [`generate_series`](https://www.postgresql.org/docs/current/functions-srf.html) to set column indices on each character.
+We use [substring](https://www.postgresql.org/docs/9.1/functions-string.html) to split each line into characters and we use [generate_series](https://www.postgresql.org/docs/current/functions-srf.html) to set column indices on each character.
 
 It's easy enough to write a query that counts visible trees along the edge of our grid:
 
@@ -219,7 +225,7 @@ Each set is combined via `union`.
 The recursive query will execute **until we stop generating new rows in the overall result set.**
 This implicit termination condition is subtle - I found it difficult to understand at first, but it's core to the design of recursive queries in SQL.
 
-{{< notice tip >}}
+{{< notice note >}}
 The recursive query's termination condition means that the choice between `union` and `union all` can have massive implications for your query's correctness.
 
 Remember:
