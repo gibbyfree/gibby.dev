@@ -15,7 +15,7 @@
       
       <guid>//localhost:1313/posts/docker_extraction/</guid>
       <description>If a dockerfile is built in a container and no one is around to see it, does it make a sound?</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/docker_extraction/featured.jpg" />
+      
     </item>
     
   </channel>
