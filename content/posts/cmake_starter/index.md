@@ -1,9 +1,10 @@
 +++
 title = 'Getting started with CMake'
 summary = "CMake made slightly simpler"
-description = "CMake made slightly simpler"
+description = "A beginner's guide to CMake"
 date = '2025-02-22'
 tags = ['C', 'Build Systems', 'Beginner']
+keywords = ['cmake', 'c++', 'c build systems']
 showReadingTime = false
 showComments = true
 +++
