@@ -1,9 +1,10 @@
 +++
 title = 'Static extraction of Docker image artifacts'
 summary = 'If a dockerfile is built in a container and no one is around to see it, does it make a sound?'
-description = 'If a dockerfile is built in a container and no one is around to see it, does it make a sound?'
+description = 'Extracting artifacts from Docker containers'
 date = '2024-05-17'
-tags = ['devops', 'guide', 'intermediate']
+tags = ['devops', 'Docker', 'intermediate']
+keywords = ['docker', 'dockerfile', 'docker tracing']
 showReadingTime = false
 showComments = true
 showTableOfContents = true

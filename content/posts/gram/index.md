@@ -1,9 +1,10 @@
 +++
 title = 'Building a basic text editor in Rust'
 summary = 'Apparently, the gateway drug to kernel development'
-description = 'Apparently, the gateway drug to kernel development'
+description = 'Implementing Kilo in Rust'
 date = '2024-12-28'
 tags = ['Rust', 'project', 'intermediate']
+keywords = ['rust', 'project', 'kilo', 'text editor']
 showReadingTime = false
 showComments = true
 +++

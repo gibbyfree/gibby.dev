@@ -1,7 +1,8 @@
 +++
 title = "What is pedal steel guitar?"
 summary = 'An introduction to an enigmatic instrument'
-description = 'An introduction to an enigmatic instrument'
+description = 'A high-level introduction to pedal steel guitar'
+keywords = ['pedal steel', 'steel guitar']
 topics = ["pedal steel"]
 series = ["Pedal Steel"]
 series_order = 1

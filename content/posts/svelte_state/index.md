@@ -1,9 +1,10 @@
 +++
 title = 'Global state in Svelte 5'
 summary = "Svelte state for dummies (it's me, I'm dummies)"
-description = "Svelte state for dummies (it's me, I'm dummies)"
+description = "Managing global state in Svelte 5"
 date = '2025-01-01'
-tags = ['Svelte', 'tip', 'beginner']
+tags = ['Svelte', 'beginner']
+keywords = ['Svelte', 'Sveltekit', 'Svelte 5', 'Svelte state']
 showReadingTime = false
 showComments = true
 +++

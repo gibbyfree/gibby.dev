@@ -1,9 +1,10 @@
 +++
 title = 'Solving Advent of Code with SQL'
 summary = "Anything can be a general purpose language if you believe in yourself"
-description = "Anything can be a general purpose language if you believe in yourself"
+description = "Sovling Advent of Code problems with pure SQL"
 date = '2025-02-18'
 tags = ['SQL', 'intermediate']
+keywords = ['Advent of Code', 'SQL', 'postgres', 'psql', 'AoC SQL']
 showReadingTime = false
 showComments = true
 +++

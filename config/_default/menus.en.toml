@@ -6,15 +6,32 @@ weight = 2
 
 [[main]]
 name = "Posts"
-pageRef = "/posts"
-identifier = "Miqj69oBmo"
 weight = 3
+
+[[main]]
+name = "All"
+parent = "Posts"
+pageRef = "/posts"
+weight = 4
+
+[[main]]
+name = "By tag"
+parent = "Posts"
+pageRef = "/tags"
+weight = 5
 
 [[main]]
 identifier = "github"
 pre = "github"
 pageRef = "https://github.com/gibbyfree"
-weight = 4
+weight = 6
 
 [[footer]]
-none = "none"
+name = "Tags"
+pageRef = "/tags"
+weight = 10
+
+[[footer]]
+name = "About"
+pageRef = "/about"
+weight = 20
