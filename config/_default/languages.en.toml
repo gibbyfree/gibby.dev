@@ -12,5 +12,5 @@ dateFormat = "2 January 2006"
 
 [params.author]
 name = "Gibby Free"
-image = "https://gibbystatic.blob.core.windows.net/static/ufo-green.png"
+image = "https://staticgibby.blob.core.windows.net/static/other-ufogreen.png"
 bio = "Mostly normal person."

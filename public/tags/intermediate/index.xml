@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Gibby Free</copyright>
-    <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/tags/intermediate/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/tags/intermediate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solving Advent of Code with SQL</title>
+      <link>//localhost:1313/posts/sql_aoc/</link>
+      <pubDate>Tue, 18 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/sql_aoc/</guid>
+      <description>Anything can be a general purpose language if you believe in yourself</description>
+      
+    </item>
+    
     <item>
       <title>Building a basic text editor in Rust</title>
       <link>//localhost:1313/posts/gram/</link>
@@ -25,7 +35,7 @@
       
       <guid>//localhost:1313/posts/docker_extraction/</guid>
       <description>If a dockerfile is built in a container and no one is around to see it, does it make a sound?</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/docker_extraction/featured.jpg" />
+      
     </item>
     
   </channel>
