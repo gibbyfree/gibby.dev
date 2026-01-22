@@ -18,29 +18,38 @@ This post is based on material from [chapter 6 of the 2019 edition](https://web.
 
 # So, tf is `tf-idf`?
 
-- **tf**: Term frequency
-- **idf**: Inverse document frequency
+- **`tf`**: Term frequency
+- **`idf`**: Inverse document frequency
 
-That's the acronym, but 'tf-idf' is also used to describe **a model** for representing text - more specifically, documents.
+That's the acronym, but `tf-idf` is also used to describe **a model** for representing text - more specifically, documents.
 
-tf-idf is best known for its role in information retrieval.
-Early search engines used the tf-idf model to support user queries: given a query like "Ginger Spice", which documents are relevant? 
+`tf-idf` is best known for its role in information retrieval.
+
+Early search engines used the `tf-idf` model to support user queries: given a query like "Ginger Spice", which documents are relevant? 
 Once we've found relevant documents, how do we rank them? (Is the user looking for information about the Spice Girls, or information about the root?)
 
-Here's how we create a tf-idf model, at a high-level:
+Here's how we create a `tf-idf` model, in two simple steps:
 - **Index all documents.** For each document, count how often each word appears.
     - A document like `I really, really like cake.` is broken up into a map like:
       `{'I': 1, 'really': 2, 'like': 1, 'cake': 1}`
-- **Calculate tf and tf-idf for all documents.** This is the creepy part o_o
+- **Calculate `tf`, `idf`, and `tf-idf` for all documents.** This is the creepy part o_o
 
-That's it.
-At this point, you have a **term-document matrix**.
+In other words, this is how we create a **term-document matrix**. 
+Let's walk through it.
 
 # Creating the term-document matrix
 ## Indexing all documents
 Given a list of document file paths:
 
 ```python
+def get_cnt_string(str):
+    """Count up word occurrences for a single string."""
+    counter = Counter()
+    # remove punctuation
+    regex = re.compile(r"[,\.!?]")
+    words = regex.sub("", str.lower()).split()
+    return Counter(words)
+
 def get_per_doc_cnt(documents):
     """
     Count up word occurrences for each document.
@@ -162,7 +171,7 @@ If a user's query contains this term, then the document is probably relevant, an
 After creating the term-document matrix, we'll effectively repeat our work for our query.
 The query is expected to be a string, something like: `school supplies`.
 
-First, we get counts for the query:
+First, we get counts for the query. We can use the `get_cnt_string` helper directly:
 
 ```python
 def get_cnt_string(str):
@@ -214,7 +223,7 @@ def calculate_tf_idf_for_query(query, doc_counters):
 This is very similar to the `calculate_tf_idf` function that we defined earlier.
 (You can collapse both `tf_idf` calculations into a single function, but I split it out for the sake of clarity.)
 
-Hopefully this helps to demystify the intuitions behind `tf`, `idf`, and `tf-idf`.
+Hopefully this helps to demystify the intuitions behind `tf`, `idf`, and `tf-idf`!
 
 If we wanted to extend this script to support actual information retrieval and document ranking, we'd need to delve into word vectors, vector math, cosine similarity, and other lunacy.
 I'll cover these topics in a follow-up post, since I think they deserve a focused explanation.
