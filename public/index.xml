@@ -6,8 +6,18 @@
     <description>Recent content on gibby.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2025 Gibby Free</copyright>
-    <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2026 Gibby Free</copyright>
+    <lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tf is tf-idf?</title>
+      <link>//localhost:1313/posts/tf-idf/</link>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/tf-idf/</guid>
+      <description>idk! (jk)</description>
+      
+    </item>
+    
     <item>
       <title>What is pedal steel guitar?</title>
       <link>//localhost:1313/posts/pedal_steel_intro/</link>
