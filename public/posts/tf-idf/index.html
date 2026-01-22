@@ -107,7 +107,7 @@
     "keywords": ["Python","NLP","beginner"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1269"
+    "wordCount": "1308"
   }]
   </script>
 
@@ -656,7 +656,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2026-01-14T00:00:00&#43;00:00">14 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1269 words</span>
+  <time datetime="2026-01-14T00:00:00&#43;00:00">14 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1308 words</span>
   
 
   
@@ -753,14 +753,14 @@ This textbook is a happy medium, but I wanted to work through the exercises in c
     
 </h1>
 <ul>
-<li><strong>tf</strong>: Term frequency</li>
-<li><strong>idf</strong>: Inverse document frequency</li>
+<li><strong><code>tf</code></strong>: Term frequency</li>
+<li><strong><code>idf</code></strong>: Inverse document frequency</li>
 </ul>
-<p>That&rsquo;s the acronym, but &rsquo;tf-idf&rsquo; is also used to describe <strong>a model</strong> for representing text - more specifically, documents.</p>
-<p>tf-idf is best known for its role in information retrieval.
-Early search engines used the tf-idf model to support user queries: given a query like &ldquo;Ginger Spice&rdquo;, which documents are relevant?
+<p>That&rsquo;s the acronym, but <code>tf-idf</code> is also used to describe <strong>a model</strong> for representing text - more specifically, documents.</p>
+<p><code>tf-idf</code> is best known for its role in information retrieval.</p>
+<p>Early search engines used the <code>tf-idf</code> model to support user queries: given a query like &ldquo;Ginger Spice&rdquo;, which documents are relevant?
 Once we&rsquo;ve found relevant documents, how do we rank them? (Is the user looking for information about the Spice Girls, or information about the root?)</p>
-<p>Here&rsquo;s how we create a tf-idf model, at a high-level:</p>
+<p>Here&rsquo;s how we create a <code>tf-idf</code> model, in two simple steps:</p>
 <ul>
 <li><strong>Index all documents.</strong> For each document, count how often each word appears.
 <ul>
@@ -768,10 +768,10 @@ Once we&rsquo;ve found relevant documents, how do we rank them? (Is the user loo
 <code>{'I': 1, 'really': 2, 'like': 1, 'cake': 1}</code></li>
 </ul>
 </li>
-<li><strong>Calculate tf and tf-idf for all documents.</strong> This is the creepy part o_o</li>
+<li><strong>Calculate <code>tf</code>, <code>idf</code>, and <code>tf-idf</code> for all documents.</strong> This is the creepy part o_o</li>
 </ul>
-<p>That&rsquo;s it.
-At this point, you have a <strong>term-document matrix</strong>.</p>
+<p>In other words, this is how we create a <strong>term-document matrix</strong>.
+Let&rsquo;s walk through it.</p>
 
 
 <h1 class="relative group">Creating the term-document matrix 
@@ -797,7 +797,15 @@ At this point, you have a <strong>term-document matrix</strong>.</p>
     
 </h2>
 <p>Given a list of document file paths:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_per_doc_cnt</span><span class="p">(</span><span class="n">documents</span><span class="p">):</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_cnt_string</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Count up word occurrences for a single string.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># remove punctuation</span>
+</span></span><span class="line"><span class="cl">    <span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;[,\.!?]&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">words</span> <span class="o">=</span> <span class="n">regex</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_per_doc_cnt</span><span class="p">(</span><span class="n">documents</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s2">    Count up word occurrences for each document.
 </span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
@@ -1067,7 +1075,7 @@ If a user&rsquo;s query contains this term, then the document is probably releva
 </h1>
 <p>After creating the term-document matrix, we&rsquo;ll effectively repeat our work for our query.
 The query is expected to be a string, something like: <code>school supplies</code>.</p>
-<p>First, we get counts for the query:</p>
+<p>First, we get counts for the query. We can use the <code>get_cnt_string</code> helper directly:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_cnt_string</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Count up word occurrences for a single string.&#34;&#34;&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
@@ -1110,7 +1118,7 @@ The query is expected to be a string, something like: <code>school supplies</cod
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </span></span></code></pre></div><p>This is very similar to the <code>calculate_tf_idf</code> function that we defined earlier.
 (You can collapse both <code>tf_idf</code> calculations into a single function, but I split it out for the sake of clarity.)</p>
-<p>Hopefully this helps to demystify the intuitions behind <code>tf</code>, <code>idf</code>, and <code>tf-idf</code>.</p>
+<p>Hopefully this helps to demystify the intuitions behind <code>tf</code>, <code>idf</code>, and <code>tf-idf</code>!</p>
 <p>If we wanted to extend this script to support actual information retrieval and document ranking, we&rsquo;d need to delve into word vectors, vector math, cosine similarity, and other lunacy.
 I&rsquo;ll cover these topics in a follow-up post, since I think they deserve a focused explanation.</p>
 
