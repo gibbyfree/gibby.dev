@@ -227,11 +227,3 @@ Hopefully this helps to demystify the intuitions behind `tf`, `idf`, and `tf-idf
 
 If we wanted to extend this script to support actual information retrieval and document ranking, we'd need to delve into word vectors, vector math, cosine similarity, and other lunacy.
 I'll cover these topics in a follow-up post, since I think they deserve a focused explanation.
-
----
-
-## Demo: Interactive Svelte Widget
-
-Here's a proof-of-concept custom element built with Svelte:
-
-<drag-drop-box prompt="Try dragging these items around!"></drag-drop-box>

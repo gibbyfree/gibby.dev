@@ -107,7 +107,7 @@
     "keywords": ["Python","NLP","beginner"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1321"
+    "wordCount": "1319"
   }]
   </script>
 
@@ -122,7 +122,7 @@
 <script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
 
 
-<script type="module" src="/widgets/elements.js"></script>
+<script type="module" src="/components/elements.js"></script>
 
 
 
@@ -744,7 +744,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2026-01-14T00:00:00&#43;00:00">14 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1321 words</span>
+  <time datetime="2026-01-14T00:00:00&#43;00:00">14 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1319 words</span>
   
 
   
@@ -945,121 +945,7 @@ This is different from the word counts that we calculated a second ago.</p>
 <p>Put simply, we compute <code>tf</code> by taking the <strong>common logarithm</strong> of the word count.
 Since the common logarithm of 0 is undefined, we add 1 to our count to be safe.
 (It&rsquo;s also valid to set <code>tf = 0</code> if <code>count == 0</code>).</p>
-<style type="text/css">
-     
-    .notice {
-        --title-color: #fff;
-        --title-background-color: #6be;
-        --content-color: #444;
-        --content-background-color: #e7f2fa;
-    }
-
-    .notice.info {
-        --title-background-color: #fb7;
-        --content-background-color: #fec;
-    }
-
-    .notice.tip {
-        --title-background-color: #5a5;
-        --content-background-color: #efe;
-    }
-
-    .notice.warning {
-        --title-background-color: #c33;
-        --content-background-color: #fee;
-    }
-
-     
-    @media (prefers-color-scheme:dark) {
-        .notice {
-            --title-color: #fff;
-            --title-background-color: #069;
-            --content-color: #ddd;
-            --content-background-color: #023;
-        }
-
-        .notice.info {
-            --title-background-color: #a50;
-            --content-background-color: #420;
-        }
-
-        .notice.tip {
-            --title-background-color: #363;
-            --content-background-color: #121;
-        }
-
-        .notice.warning {
-            --title-background-color: #800;
-            --content-background-color: #400;
-        }
-    }
-
-    body.dark .notice {
-        --title-color: #fff;
-        --title-background-color: #069;
-        --content-color: #ddd;
-        --content-background-color: #023;
-    }
-
-    body.dark .notice.info {
-        --title-background-color: #a50;
-        --content-background-color: #420;
-    }
-
-    body.dark .notice.tip {
-        --title-background-color: #363;
-        --content-background-color: #121;
-    }
-
-    body.dark .notice.warning {
-        --title-background-color: #800;
-        --content-background-color: #400;
-    }
-
-     
-    .notice {
-        padding: 18px;
-        line-height: 24px;
-        margin-bottom: 24px;
-        border-radius: 4px;
-        color: var(--content-color);
-        background: var(--content-background-color);
-    }
-
-    .notice p:last-child {
-        margin-bottom: 0
-    }
-
-     
-    .notice-title {
-        margin: -18px -18px 12px;
-        padding: 4px 18px;
-        border-radius: 4px 4px 0 0;
-        font-weight: 700;
-        color: var(--title-color);
-        background: var(--title-background-color);
-    }
-
-     
-    .icon-notice {
-        display: inline-flex;
-        align-self: center;
-        margin-right: 8px;
-    }
-
-    .icon-notice img,
-    .icon-notice svg {
-        height: 1em;
-        width: 1em;
-        fill: currentColor;
-    }
-
-    .icon-notice img,
-    .icon-notice.baseline svg {
-        top: .125em;
-        position: relative;
-    }
-</style><div class="notice note" >
+<div class="notice note" >
     <p class="notice-title">
         <span class="icon-notice baseline">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 128 300 300">
@@ -1069,11 +955,13 @@ Since the common logarithm of 0 is undefined, we add 1 to our count to be safe.
         </span>Note</p><p><code>log10</code> appears in many &ldquo;magical formulas&rdquo; of natural language processing / machine learning / etc. Why?</p>
 <p><code>log10</code> lets us translate <strong>counts</strong> into <strong>orders of magnitude</strong>.
 If the word &rsquo;the&rsquo; appears in my document 5000 times and &lsquo;dog&rsquo; appears 5 times, then:</p>
-\[
+<p>[
 \text{tf}(5) = 1 + \log_{10}(5) \approx 1 + 0.699 = 1.699
-\]\[
+]</p>
+<p>[
 \text{tf}(5000) = 1 + \log_{10}(5000) \approx 1 + 3.699 = 4.699
-\]<p>So, the raw count of “the” is <strong>three orders of magnitude</strong> larger than “dog”, which <code>log10</code> encodes as a difference of about 3 in term frequency.</p>
+]</p>
+<p>So, the raw count of “the” is <strong>three orders of magnitude</strong> larger than “dog”, which <code>log10</code> encodes as a difference of about 3 in term frequency.</p>
 <p>You can think of <code>log10</code> as a convenient way to compress large numbers and make radically different counts easier to compare across a dataset.</p></div>
 
 
@@ -1090,9 +978,11 @@ If the word &rsquo;the&rsquo; appears in my document 5000 times and &lsquo;dog&r
 </h3>
 <p><strong>Document frequency</strong> of a term refers to the number of documents that contain a term.
 <strong>Inverse document frequency</strong>, then, refers to the rarity of a term across all documents, or across the <strong>corpus</strong>. If a term appears in many documents, then its inverse document frequency should be lower.</p>
-\[
-\log_{10}\!\left(\frac{\text{number of documents}}{\text{number of documents containing the term}}\right)
-\]<p>(Again, we&rsquo;re using <code>log10</code> to compress the scale.)</p>
+<p>Putting it all together, <code>idf</code> is calculated as:
+[
+\log_{10}!\left(\frac{\text{number of documents}}{\text{number of documents containing the term}}\right)
+]</p>
+<p>(Again, we&rsquo;re using <code>log10</code> to compress the scale.)</p>
 <p>Given a list of per-document word counts, this function computes <code>tf</code>, <code>idf</code>, and <code>tf-idf</code> for each term in each document:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate_tf_idf_for_docs</span><span class="p">(</span><span class="n">doc_counters</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
@@ -1209,21 +1099,6 @@ The query is expected to be a string, something like: <code>school supplies</cod
 <p>Hopefully this helps to demystify the intuitions behind <code>tf</code>, <code>idf</code>, and <code>tf-idf</code>!</p>
 <p>If we wanted to extend this script to support actual information retrieval and document ranking, we&rsquo;d need to delve into word vectors, vector math, cosine similarity, and other lunacy.
 I&rsquo;ll cover these topics in a follow-up post, since I think they deserve a focused explanation.</p>
-<hr>
-
-
-<h2 class="relative group">Demo: Interactive Svelte Widget 
-    <div id="demo-interactive-svelte-widget" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#demo-interactive-svelte-widget" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p>Here&rsquo;s a proof-of-concept custom element built with Svelte:</p>
-<p><drag-drop-box prompt="Try dragging these items around!"></drag-drop-box></p>
 
           
           
@@ -1335,6 +1210,28 @@ I&rsquo;ll cover these topics in a follow-up post, since I think they deserve a 
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/svelte_hugo/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Embedding Svelte components in Hugo posts</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2026-01-25T00:00:00&#43;00:00">25 January 2026</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>
