@@ -2,6 +2,9 @@
 {{ $jqueryLib := resources.Get "lib/jquery/jquery.slim.min.js" | resources.Fingerprint "sha512" }}
 <script src="{{ $jqueryLib.RelPermalink }}" integrity="{{ $jqueryLib.Data.Integrity }}"></script>
 
+{{/* Svelte Custom Element Widgets */}}
+<script type="module" src="/components/elements.js"></script>
+
 {{/* Mermaid */}}
 {{ if .Page.HasShortcode "mermaid" }}
 {{ $mermaidLib := resources.Get "lib/mermaid/mermaid.min.js" }}
