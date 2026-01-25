@@ -29,7 +29,7 @@ Hugo generates a static site (i.e., HTML/CSS/JS files) by performing Golang magi
 
 Modern, interactive web apps are more complex. At runtime, components will render, re-render, manage state, respond to user input, etc.
 
-I want interactive components in a static site. Here are the key ideas I can exploit:
+I want interactive components in a static site. Here are the key ideas to exploit:
 1. Svelte components can be compiled to [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements). Custom elements are HTML elements that behave like self-contained interactive widgets - similar in spirit to `iframe`.
 2. Hugo's [markdown parser](https://github.com/yuin/goldmark) can render raw HTML in input Markdown files. 
 3. Hugo lets you embed any arbitrary `<script>` in any given page.
