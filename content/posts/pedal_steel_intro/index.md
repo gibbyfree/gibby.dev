@@ -10,6 +10,7 @@ tags = ['pedal steel']
 date = '2025-03-21'
 showReadingTime = false
 showTableOfContents = true
+showComments = true
 +++
 {{< lead >}}
 An introduction to an enigmatic instrument
