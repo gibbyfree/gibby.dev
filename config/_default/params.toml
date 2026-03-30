@@ -25,12 +25,12 @@ showScrollToTop = true
 layout = "background"
 showRecent = true
 showRecentItems = 5
-showMoreLink = false
+showMoreLink = true
 showMoreLinkDest = "/posts/"
 cardView = false
 cardViewScreenWidth = false
 layoutBackgroundBlur = false
-homepageImage = "https://staticgibby.blob.core.windows.net/static/more-stars.jpg"
+homepageImage = "https://gibbystatic.blob.core.windows.net/static/more-stars.jpg"
 
 [article]
 showDate = true

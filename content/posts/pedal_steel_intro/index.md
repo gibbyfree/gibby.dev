@@ -45,7 +45,7 @@ The autoharp is a relatively well-known chord zither. Fans of 60s pop might reme
 Hidden beneath the autoharp's "plate" of buttons, there are several bars affixed with soft pads. When an autoharp's chord button is pressed, the bar is lowered onto the strings and pads will mute all strings *except for* the strings needed to produce a given chord. 
 
 {{< figure
-  src="https://staticgibby.blob.core.windows.net/static/autoharp.jpg"
+  src="https://gibbystatic.blob.core.windows.net/static/autoharp.jpg"
   alt="An autoharp with several buttons attached to bars. There are thick white pads on the underside of each bar."
   caption="Notice the white pads on the underside of the frontmost bar. Photo from [Heights Guitar Tech](https://heightsguitartech.com/).">}} 
 
@@ -107,7 +107,7 @@ Classic lap style slide guitar became widely known in various genres as **lap st
 Lap steel guitars look like electric guitars with bodies trimmed down to lap size. 
 
 {{< figure
-  src="https://staticgibby.blob.core.windows.net/static/lapsteel.jpg"
+  src="https://gibbystatic.blob.core.windows.net/static/lapsteel.jpg"
   alt="A lap steel guitar. Looks a bit like someone hacked off the lower portion of an electric guitar."
   caption="A vintage Guyatone lap steel. Guyatone (a Japanese company) would have sold this guitar in the 1960s. Photo from [Gravity Music Gear](https://www.gravitymusicgear.com/)."
 >}} 
@@ -136,7 +136,7 @@ As lap steel guitars grew in popularity, enhancements were introduced to improve
 One notable advancement was the addition of **palm levers** (also known as **benders**).
 
 {{< figure
-  src="https://staticgibby.blob.core.windows.net/static/palmlever.jpeg"
+  src="https://gibbystatic.blob.core.windows.net/static/palmlever.jpeg"
   alt="A close-up on a lap steel guitar's palm levers."
   caption="A Peters Classic palm lever lap steel. Photo from [Peters Instruments](https://petersinstruments.com/products/peters-classic-palm-lever-lap-steel-pedal-steel-sound-guitar-multi-bender_174588322544_).">}} 
 
@@ -151,7 +151,7 @@ In this video, notice how the notes change as each palm lever is pressed:
 Eventually, lap steels were produced with multiple necks - usually two, but nutjob guitars like this Fender Quad Stringmaster featured four necks.
 
 {{< figure
-  src="https://staticgibby.blob.core.windows.net/static/stringmaster.jpg"
+  src="https://gibbystatic.blob.core.windows.net/static/stringmaster.jpg"
   alt="A Fender Quad Stringmaster, which looks like four different lap steel guitars mashed together into a single unit."
   caption="A Fender Quad Stringmaster. Photo from [The Steel Guitar Forum](https://bb.steelguitarforum.com/viewtopic.php?t=261574).">}} 
 
@@ -202,7 +202,7 @@ Knee levers hang from the underside of the pedal steel.
 The musician activates the knee lever by pressing against it with their knee or inner thigh. 
 
 {{< figure
-  src="https://staticgibby.blob.core.windows.net/static/kneelever.jpg"
+  src="https://gibbystatic.blob.core.windows.net/static/kneelever.jpg"
   alt="Close-up on knee levers beneath a pedal steel guitar. They look like big metal popsicle sticks."
   caption="Knee lever close-up. Photo from [The Steel Guitar Forum](https://bb.steelguitarforum.com/viewtopic.php?t=287737).">}} 
 
