@@ -8,6 +8,7 @@ showAuthor = false
 layout = "simple"
 +++
 I’m a software engineer at Microsoft and a master’s student in computer science.
+I like writing, software, and sometimes writing about software.
 
 My preferred programming languages include Rust, TypeScript, C#... umm...
 

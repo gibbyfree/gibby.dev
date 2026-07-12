@@ -5,26 +5,31 @@ identifier = "4dn1PWNJpj"
 weight = 2
 
 [[main]]
-name = "Posts"
+name = "Projects"
+pageRef = "/tags/project"
 weight = 3
+
+[[main]]
+name = "Posts"
+weight = 4
 
 [[main]]
 name = "All"
 parent = "Posts"
 pageRef = "/posts"
-weight = 4
+weight = 5
 
 [[main]]
 name = "By tag"
 parent = "Posts"
 pageRef = "/tags"
-weight = 5
+weight = 6
 
 [[main]]
 identifier = "github"
 pre = "github"
 pageRef = "https://github.com/gibbyfree"
-weight = 6
+weight = 7
 
 [[footer]]
 name = "Tags"
